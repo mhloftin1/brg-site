@@ -1,0 +1,43 @@
+# ============================================================
+# Decap CMS Configuration for Bowie Research Group
+# ============================================================
+# 
+# SETUP REQUIRED:
+#   1. Replace YOUR_GITHUB_USERNAME below with your actual GitHub username
+#   2. Replace YOUR_REPO_NAME with the actual repository name
+#   3. See README.md for OAuth app setup instructions
+#
+# After setup, access the CMS at: https://bowierg.com/admin/
+# ============================================================
+
+backend:
+  name: github
+  repo: YOUR_GITHUB_USERNAME/YOUR_REPO_NAME    # ← CHANGE THIS
+  branch: main
+  base_url: https://api.netlify.com             # ← See README for alternatives
+
+# Where uploaded images go (if you add images to posts later)
+media_folder: "images"
+public_folder: "/images"
+
+# Post collection
+collections:
+  - name: "posts"
+    label: "Work Posts"
+    folder: "posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{slug}}"
+    extension: "md"
+    format: "yaml-frontmatter"
+    editor:
+      preview: false
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string", hint: "URL-friendly name, e.g. 2026-03-new-post-title" }
+      - { label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        hint: "e.g. Manufacturing, Systems, AI, Coaching"
+      - { label: "Summary", name: "summary", widget: "text", hint: "1-2 sentence preview shown on the Work feed page" }
+      - { label: "Body", name: "body", widget: "markdown" }

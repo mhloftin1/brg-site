@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research-Driven Consulting — Bowie Research Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Bowie Research Group</a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="workshops.html">Workshops</a></li>
+      <li><a href="contact.html" class="nav-cta">Talk to Us</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-content">
+      <h1>We figure out what your business actually needs&nbsp;— then build&nbsp;it.</h1>
+      <p>Research-driven consulting for businesses with problems that don't fit a standard playbook.</p>
+      <a href="contact.html" class="btn btn--primary">Talk to Us <span class="btn-arrow">→</span></a>
+      <div class="hero-email" id="heroEmail">
+        <div class="hero-email-label">Stay in the loop</div>
+        <div id="heroEmailContent">
+          <div class="hero-email-form">
+            <input type="email" id="heroEmailInput" placeholder="you@company.com">
+            <button onclick="submitHeroEmail()">Subscribe</button>
+          </div>
+          <div class="hero-email-dismiss">
+            <button onclick="dismissHeroEmail()">No thanks</button>
+          </div>
+        </div>
+        <div class="hero-email-success" id="heroEmailSuccess">
+          <p>✓ You're on the list.</p>
+          <p class="sub">We'll be in touch when there's something worth reading.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE PROBLEM -->
+<section class="problem">
+  <div class="container">
+    <div class="problem-content reveal">
+      <span class="section-label">The Pattern We Keep Seeing</span>
+      <h2>Most businesses we meet have the same structural problem: the operation runs on memory.</h2>
+      <p>The quoting process lives in someone's head. The data is "close enough" but requires constant manual correction. Documentation exists in three different systems — or doesn't exist at all. When the key person is out, everything slows down.</p>
+      <p>That looks like normal growing pains until volume increases, a key employee leaves, or you try to sell the company. Then the cost of tribal knowledge becomes very real, very fast.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE WORK -->
+<section class="process">
+  <div class="container">
+    <span class="section-label" style="text-align:center;display:block;">How We Work</span>
+    <h2>Discovery → Build → Handoff</h2>
+    <div class="process-grid">
+      <div class="process-step reveal">
+        <span class="step-number">01</span>
+        <h3>Discover</h3>
+        <p>We start by figuring out what's actually broken — not what you think is broken. We ask questions, audit systems, and map the gap between how things should work and how they actually work.</p>
+      </div>
+      <div class="process-step reveal">
+        <span class="step-number">02</span>
+        <h3>Build</h3>
+        <p>We design and implement the systems your business needs: process documentation, data governance, workflow automation, ERP configuration. We use AI tools internally to work faster — but the deliverable is always a system your team can run.</p>
+      </div>
+      <div class="process-step reveal">
+        <span class="step-number">03</span>
+        <h3>Hand Off</h3>
+        <p>When we leave, you own everything. Documented, trained, and operational. No open-ended retainers. No dependency model. The goal is a system that works without us in the room.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="proof">
+  <div class="container">
+    <span class="section-label">What We've Done</span>
+    <h2>Real work, real results.</h2>
+    <div class="proof-grid">
+      <div class="proof-card reveal">
+        <span class="proof-tag">Manufacturing · Systems</span>
+        <h3>Manufacturing Operations Systemization</h3>
+        <p>A trailer manufacturer running on verbal orders and paper build sheets. We validated 537 item codes, rebuilt a die number map that was 90% incorrect, digitized intake processes replacing 250+ handwritten forms, and designed a system that cut manual correction time by 75%.</p>
+        <a href="/work/2026-02-operation-ran-on-memory.html" class="read-more">Read the full story <span>→</span></a>
+      </div>
+      <div class="proof-card reveal">
+        <span class="proof-tag">AI · Coaching</span>
+        <h3>AI Execution Coaching</h3>
+        <p>A regulated-industry contractor managing client relationships on instinct instead of systems. We mapped the gaps, designed a follow-up workflow, and coached implementation using AI tools tailored to their actual daily routine.</p>
+        <a href="/work/2026-02-ai-without-the-hype.html" class="read-more">Read the full story <span>→</span></a>
+      </div>
+      <div class="proof-card reveal">
+        <span class="proof-tag">Nonprofit · Program Design</span>
+        <h3>Nonprofit Program Development</h3>
+        <p>An education-focused nonprofit needed to turn an idea into a structured, repeatable program. We built it alongside them — research, curriculum design, stakeholder alignment — and handed them a system they run independently.</p>
+        <a href="/work/2026-02-building-for-handoff.html" class="read-more">Read the full story <span>→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO THIS IS FOR -->
+<section class="fit">
+  <div class="container">
+    <div class="fit-layout">
+      <h2>Is This a Fit?</h2>
+      <div class="fit-yes reveal">
+        <h3>You're a good fit if</h3>
+        <p>Your business has outgrown the spreadsheets and memory that got you here. You have real operational complexity — custom products, configured orders, multi-step processes — but the systems haven't caught up. You might be preparing for growth, preparing for an exit, or just tired of being the single point of failure. You're willing to invest in building something real, not a band-aid.</p>
+      </div>
+      <div class="fit-no reveal">
+        <h3>Probably not a fit if</h3>
+        <p>You need cheap hourly labor, want someone to run your operations indefinitely, or are looking for a pre-packaged solution dropped in without discovery.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="container">
+    <div class="about-layout reveal">
+      <div class="about-photo">Photo</div>
+      <div>
+        <span class="section-label">About</span>
+        <h2>Matt Loftin — Principal, Bowie Research Group</h2>
+        <p>Former economics professor. Now I build operations systems for businesses where the real processes live in people's heads instead of documented workflows.</p>
+        <p>I started BRG because I kept finding the same pattern: businesses with smart people and good products, held back by systems that couldn't keep pace. The quoting takes too long. The data doesn't match reality. One person holds everything together — and everyone knows it.</p>
+        <p>I don't arrive with a template. I learn your domain, ask the right questions, and build systems designed to outlast the engagement.</p>
+        <span class="about-location">📍 Amarillo, Texas</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <h2>Ready to talk?</h2>
+  <p>We start every engagement with a conversation — no pitch deck, no pressure. We want to understand what you're dealing with before we recommend anything.</p>
+  <a href="contact.html" class="btn btn--primary">Schedule a Conversation <span class="btn-arrow">→</span></a>
+  <p class="contact-alt">Or reach us directly: <a href="mailto:m.loftin@bowieRG.com">m.loftin@bowieRG.com</a> · Amarillo, Texas</p>
+</div>
+
+
+<footer>
+  <div class="footer-brand">Bowie Research Group LLC · Amarillo, Texas</div>
+  <div class="footer-tagline">Research-driven consulting for businesses with unique problems.</div>
+  <div class="footer-links">
+    <a href="#">LinkedIn</a>
+    <a href="mailto:m.loftin@bowieRG.com">Email</a>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll effect
+  window.addEventListener('scroll', () => {
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Smooth scroll for same-page anchor links only
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        document.querySelector('.nav-links').classList.remove('open');
+      }
+    });
+  });
+
+  // ========== HERO EMAIL BAR ==========
+  function submitHeroEmail() {
+    const input = document.getElementById('heroEmailInput');
+    if (!input.value || !input.value.includes('@')) {
+      input.style.borderColor = '#c0392b';
+      input.addEventListener('input', () => { input.style.borderColor = ''; }, { once: true });
+      return;
+    }
+    document.getElementById('heroEmailContent').style.display = 'none';
+    document.getElementById('heroEmailSuccess').style.display = 'block';
+  }
+
+  function dismissHeroEmail() {
+    document.getElementById('heroEmail').classList.add('dismissed');
+  }
+</script>
+
+</body>
+</html>

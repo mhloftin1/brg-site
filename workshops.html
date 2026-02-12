@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workshops & Training — Bowie Research Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Bowie Research Group</a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="workshops.html">Workshops</a></li>
+      <li><a href="contact.html" class="nav-cta">Talk to Us</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<!-- Combined header: title + description (left) + waitlist (right) -->
+<div class="workshop-header-combined">
+  <div class="workshop-header-grid">
+    <div class="workshop-header-left">
+      <h1>Workshops &amp; Training</h1>
+      <p>Practical sessions for business owners and operators. No theory. No slides full of jargon. Real tools applied to real work.</p>
+      <p>We run workshops for people who want to use AI and systems thinking to solve actual problems — not attend another webinar about "the future of work." Sessions are designed for people who run things: small business owners, team leads, solo practitioners.</p>
+    </div>
+    <div class="workshop-header-right">
+      <h3>Get on the list.</h3>
+      <p>Be the first to know when we schedule the next session.</p>
+      <div id="waitlistContent">
+        <div class="waitlist-form">
+          <input type="email" id="waitlistEmail" placeholder="you@company.com">
+          <button onclick="submitWaitlist()">Notify Me</button>
+        </div>
+      </div>
+      <div class="waitlist-success" id="waitlistSuccess">
+        <p>✓ You're on the list.</p>
+        <p class="sub">We'll let you know when the next one is scheduled.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- What We Cover -->
+<div class="workshop-topics">
+  <div class="container">
+    <h2>What We Cover</h2>
+    <div class="topic-grid">
+      <div class="topic-card reveal">
+        <h3>AI for Scripting &amp; Automation</h3>
+        <p>How to use AI tools for the repetitive writing, communication, and documentation tasks that eat your day. Not theory — you'll build something in the session.</p>
+      </div>
+      <div class="topic-card reveal">
+        <h3>Multi-AI Workflows</h3>
+        <p>How to hand work between Claude, ChatGPT, and other tools to get better output than any single tool produces alone. The briefing-a-colleague model.</p>
+      </div>
+      <div class="topic-card reveal">
+        <h3>Data Handling &amp; Cleanup</h3>
+        <p>Turn messy spreadsheets, inconsistent records, and scattered files into usable, structured data. The unsexy work that makes everything else possible.</p>
+      </div>
+      <div class="topic-card reveal">
+        <h3>Deep Research Techniques</h3>
+        <p>How to use AI to answer real business questions — market research, competitive analysis, regulatory questions — faster and more thoroughly than traditional methods.</p>
+      </div>
+      <div class="topic-card reveal">
+        <h3>Writing That Doesn't Sound Like AI</h3>
+        <p>How to use AI as a drafting partner while maintaining a voice that sounds like a human wrote it. For proposals, client communication, marketing, and internal docs.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Upcoming Sessions -->
+<div class="upcoming-sessions">
+  <div class="container">
+    <h2>Upcoming Sessions</h2>
+    <div class="session-placeholder">
+      <p>No sessions currently scheduled. Join the list above to get notified.</p>
+    </div>
+    <!-- Example of a scheduled session (unhide when ready):
+    <div class="session-card">
+      <div class="session-date">March 15, 2026 · 9:00 AM–12:00 PM · Amarillo</div>
+      <h3>AI for Scripting &amp; Automation</h3>
+      <p>Build real automation for the repetitive writing and documentation tasks eating your day. You'll leave with something that works.</p>
+    </div>
+    -->
+  </div>
+</div>
+
+<!-- Past Sessions -->
+<div class="workshop-cta">
+  <div class="container">
+    <p style="font-size:0.82rem;color:var(--text-muted);opacity:0.6;">Past sessions and resources will be listed here as they're completed.</p>
+  </div>
+</div>
+
+
+<footer>
+  <div class="footer-brand">Bowie Research Group LLC · Amarillo, Texas</div>
+  <div class="footer-tagline">Research-driven consulting for businesses with unique problems.</div>
+  <div class="footer-links">
+    <a href="#">LinkedIn</a>
+    <a href="mailto:m.loftin@bowieRG.com">Email</a>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll effect
+  window.addEventListener('scroll', () => {
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Smooth scroll for same-page anchor links only
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        document.querySelector('.nav-links').classList.remove('open');
+      }
+    });
+  });
+
+  // ========== WORKSHOP WAITLIST ==========
+  function submitWaitlist() {
+    const input = document.getElementById('waitlistEmail');
+    if (!input.value || !input.value.includes('@')) {
+      input.style.borderColor = '#c0392b';
+      input.addEventListener('input', () => { input.style.borderColor = ''; }, { once: true });
+      return;
+    }
+    document.getElementById('waitlistContent').style.display = 'none';
+    document.getElementById('waitlistSuccess').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
