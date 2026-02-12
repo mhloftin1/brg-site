@@ -19,20 +19,25 @@ const POSTS_DIR = path.join(__dirname, 'posts');
 const WORK_DIR = path.join(__dirname, 'work');
 const OUTPUT_WORK_HTML = path.join(__dirname, 'work.html');
 
+// Base path for GitHub Pages subfolder hosting.
+// Set to '/brg-site' for username.github.io/brg-site/
+// Set to '' when using a custom domain (bowierg.com)
+const BASE_PATH = '/brg-site';
+
 // ============ TEMPLATES ============
 
 function navHTML(activePage) {
   return `<nav id="nav">
   <div class="nav-inner">
-    <a href="/index.html" class="nav-logo">Bowie Research Group</a>
+    <a href="${BASE_PATH}/index.html" class="nav-logo">Bowie Research Group</a>
     <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links">
-      <li><a href="/index.html">Home</a></li>
-      <li><a href="/work.html">Work</a></li>
-      <li><a href="/workshops.html">Workshops</a></li>
-      <li><a href="/contact.html" class="nav-cta">Talk to Us</a></li>
+      <li><a href="${BASE_PATH}/index.html">Home</a></li>
+      <li><a href="${BASE_PATH}/work.html">Work</a></li>
+      <li><a href="${BASE_PATH}/workshops.html">Workshops</a></li>
+      <li><a href="${BASE_PATH}/contact.html" class="nav-cta">Talk to Us</a></li>
     </ul>
   </div>
 </nav>`;
@@ -72,7 +77,7 @@ function postPageHTML(post) {
 <title>${post.title} — Bowie Research Group</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="${BASE_PATH}/styles.css">
 <style>
   .post-single {
     max-width: 780px;
@@ -139,7 +144,7 @@ ${navHTML('work')}
 
 <div class="page-header">
   <div class="container">
-    <h1 style="font-size:clamp(1.2rem,2vw,1.6rem);opacity:0.7;"><a href="/work.html" style="color:inherit;text-decoration:none;">← Work</a></h1>
+    <h1 style="font-size:clamp(1.2rem,2vw,1.6rem);opacity:0.7;"><a href="${BASE_PATH}/work.html" style="color:inherit;text-decoration:none;">← Work</a></h1>
   </div>
 </div>
 
@@ -150,7 +155,7 @@ ${navHTML('work')}
   <div class="post-body">
     ${post.html}
   </div>
-  <a href="/work.html" class="post-back"><span>←</span> Back to all work</a>
+  <a href="${BASE_PATH}/work.html" class="post-back"><span>←</span> Back to all work</a>
 </article>
 
 ${footerHTML}
@@ -168,7 +173,7 @@ function workFeedHTML(posts) {
     <span class="post-tag">${tagSpan}</span>
     <h2>"${post.title}"</h2>
     <p>${post.summary}</p>
-    <a href="/work/${post.slug}.html" class="post-read-more">Read the full case study <span>→</span></a>
+    <a href="${BASE_PATH}/work/${post.slug}.html" class="post-read-more">Read the full case study <span>→</span></a>
   </article>`;
   }).join('\n\n');
 
@@ -180,7 +185,7 @@ function workFeedHTML(posts) {
 <title>Work — Bowie Research Group</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="${BASE_PATH}/styles.css">
 </head>
 <body>
 
