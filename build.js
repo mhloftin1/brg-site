@@ -77,6 +77,7 @@ function postPageHTML(post) {
 <title>${post.title} | Bowie Research Group</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="${BASE_PATH}/favicon.svg">
 <link rel="stylesheet" href="${BASE_PATH}/styles.css">
 <style>
   .post-single {
@@ -185,6 +186,7 @@ function workFeedHTML(posts) {
 <title>Work | Bowie Research Group</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="${BASE_PATH}/favicon.svg">
 <link rel="stylesheet" href="${BASE_PATH}/styles.css">
 </head>
 <body>
