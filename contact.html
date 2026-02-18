@@ -3,11 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact — Bowie Research Group</title>
+<title>Contact | Bowie Research Group</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/brg-site/styles.css">
-<link rel="icon" type="image/svg+xml" href="/brg-site/favicon.svg">
 </head>
 <body>
 
@@ -29,38 +28,62 @@
 
 <div class="contact-header">
   <div class="container">
-    <h1>Let's Talk</h1>
-    <p class="header-sub">Every good engagement starts with a conversation.</p>
+    <h1>Start with a Conversation</h1>
+    <p class="header-sub">We'll clarify the problem, the constraints, and whether we're the right fit. If we're not, we'll tell you.</p>
   </div>
 </div>
 
 <div class="contact-section">
   <div class="contact-layout">
-    <p>Every engagement starts the same way: a conversation. No pitch. No pressure. We want to understand what you're working with, what's breaking, what's scaling, what keeps you up at night, before we recommend anything. Sometimes the best answer is "you don't need us."</p>
 
-    <form onsubmit="event.preventDefault(); alert('Form submitted — connect this to your Squarespace form or Calendly.');">
-      <div class="form-group">
-        <label>Name</label>
-        <input type="text" name="name" placeholder="Your name" required>
-      </div>
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" name="email" placeholder="you@company.com" required>
-      </div>
-      <div class="form-group">
-        <label>Company <span class="optional">(optional)</span></label>
-        <input type="text" name="company" placeholder="Company name">
-      </div>
-      <div class="form-group">
-        <label>What's on your mind?</label>
-        <textarea name="message" placeholder="What are you dealing with? What's broken, scaling, or keeping you up at night?"></textarea>
-      </div>
-      <button type="submit" class="btn btn--primary" style="width:100%;justify-content:center;">Send It <span class="btn-arrow">→</span></button>
-    </form>
-
-    <div class="contact-direct">
-      Or reach out directly: <a href="mailto:m.loftin@bowieRG.com">m.loftin@bowieRG.com</a> · Amarillo, Texas
+    <!-- Primary CTA: Schedule -->
+    <div class="contact-primary reveal">
+      <h2>Book a 20-Minute Fit Check</h2>
+      <p>Best if you already know this is worth exploring. No pitch, no deck. Just a conversation about what you're dealing with.</p>
+      <a href="#" class="btn btn--primary" style="width:100%;justify-content:center;" onclick="alert('Connect this to Calendly or Cal.com scheduling link'); return false;">Pick a Time <span class="btn-arrow">→</span></a>
+      <p class="contact-capacity">We review requests within one business day.</p>
     </div>
+
+    <!-- Secondary CTA: Form -->
+    <div class="contact-secondary reveal">
+      <h3>Prefer to send context first?</h3>
+      <p>Outline the situation and we'll come to the call prepared.</p>
+
+      <form onsubmit="event.preventDefault(); document.getElementById('formSuccess').style.display='block'; this.style.display='none';">
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" name="name" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" name="email" placeholder="you@company.com" required>
+        </div>
+        <div class="form-group">
+          <label>Company <span class="optional">(optional)</span></label>
+          <input type="text" name="company" placeholder="Company name">
+        </div>
+        <div class="form-group">
+          <label>Role <span class="optional">(optional)</span></label>
+          <input type="text" name="role" placeholder="Your title or role">
+        </div>
+        <div class="form-group">
+          <label>What are you dealing with?</label>
+          <textarea name="message" placeholder="What's broken, scaling, or keeping you up at night?"></textarea>
+        </div>
+        <button type="submit" class="btn btn--outline" style="width:100%;justify-content:center;">Send a Brief <span class="btn-arrow">→</span></button>
+      </form>
+
+      <div id="formSuccess" style="display:none;text-align:center;padding:2rem 0;">
+        <p style="font-size:1.1rem;font-weight:600;color:var(--navy-deep);">Received. We'll be in touch within one business day.</p>
+        <p style="font-size:0.88rem;color:var(--text-muted);margin-top:0.5rem;">Check your inbox for a confirmation.</p>
+      </div>
+    </div>
+
+    <!-- Tertiary CTA: Call -->
+    <div class="contact-direct">
+      Tight timeline? Call us directly: <a href="tel:+18065550100">(806) 555-0100</a> · <a href="mailto:m.loftin@bowieRG.com">m.loftin@bowieRG.com</a> · Amarillo, Texas
+    </div>
+
   </div>
 </div>
 
