@@ -49,6 +49,8 @@ const footerHTML = `<footer>
   <div class="footer-links">
     <a href="#">LinkedIn</a>
     <a href="mailto:m.loftin@bowieRG.com">Email</a>
+    <a href="${BASE_PATH}/privacy.html">Privacy</a>
+    <a href="${BASE_PATH}/terms.html">Terms</a>
   </div>
 </footer>`;
 
