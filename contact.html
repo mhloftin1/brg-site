@@ -6,21 +6,21 @@
 <title>Contact | Bowie Research Group</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/brg-site/styles.css">
+<link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 
 <nav id="nav">
   <div class="nav-inner">
-    <a href="/brg-site/index.html" class="nav-logo">Bowie Research Group</a>
+    <a href="/index.html" class="nav-logo">Bowie Research Group</a>
     <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links">
-      <li><a href="/brg-site/index.html">Home</a></li>
-      <li><a href="/brg-site/work.html">Work</a></li>
-      <li><a href="/brg-site/workshops.html">Workshops</a></li>
-      <li><a href="/brg-site/contact.html" class="nav-cta">Talk to Us</a></li>
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/work.html">Work</a></li>
+      <li><a href="/workshops.html">Workshops</a></li>
+      <li><a href="/contact.html" class="nav-cta">Talk to Us</a></li>
     </ul>
   </div>
 </nav>
@@ -36,18 +36,10 @@
 <div class="contact-section">
   <div class="contact-layout">
 
-    <!-- Primary CTA: Schedule -->
-    <div class="contact-primary reveal">
-      <h2>Book a 20-Minute Fit Check</h2>
-      <p>Best if you already know this is worth exploring. No pitch, no deck. Just a conversation about what you're dealing with.</p>
-      <a href="#" class="btn btn--primary" style="width:100%;justify-content:center;" onclick="alert('Connect this to Calendly or Cal.com scheduling link'); return false;">Pick a Time <span class="btn-arrow">→</span></a>
-      <p class="contact-capacity">We review requests within one business day.</p>
-    </div>
-
-    <!-- Secondary CTA: Form -->
+    <!-- Contact Form -->
     <div class="contact-secondary reveal">
-      <h3>Prefer to send context first?</h3>
-      <p>Outline the situation and we'll come to the call prepared.</p>
+      <h3>Tell us what you're working on</h3>
+      <p>Outline the situation and we'll be in touch within one business day.</p>
 
       <form onsubmit="event.preventDefault(); document.getElementById('formSuccess').style.display='block'; this.style.display='none';">
         <div class="form-group">
@@ -70,7 +62,7 @@
           <label>What are you dealing with?</label>
           <textarea name="message" placeholder="What's broken, scaling, or keeping you up at night?"></textarea>
         </div>
-        <button type="submit" class="btn btn--outline" style="width:100%;justify-content:center;">Send a Brief <span class="btn-arrow">→</span></button>
+        <button type="submit" class="btn btn--primary" style="width:100%;justify-content:center;">Send It <span class="btn-arrow">→</span></button>
       </form>
 
       <div id="formSuccess" style="display:none;text-align:center;padding:2rem 0;">
@@ -92,7 +84,7 @@
   <div class="footer-brand">Bowie Research Group LLC · Amarillo, Texas</div>
   <div class="footer-tagline">Research-driven consulting for businesses with unique problems.</div>
   <div class="footer-links">
-    <a href="#">LinkedIn</a>
+    <a href="https://www.linkedin.com/company/bowie-research-group/" target="_blank" rel="noopener">LinkedIn</a>
     <a href="mailto:m.loftin@bowieRG.com">Email</a>
   </div>
 </footer>

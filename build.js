@@ -22,7 +22,7 @@ const OUTPUT_WORK_HTML = path.join(__dirname, 'work.html');
 // Base path for GitHub Pages subfolder hosting.
 // Set to '/brg-site' for username.github.io/brg-site/
 // Set to '' when using a custom domain (bowierg.com)
-const BASE_PATH = '/brg-site';
+const BASE_PATH = '';
 
 // ============ TEMPLATES ============
 
@@ -47,7 +47,7 @@ const footerHTML = `<footer>
   <div class="footer-brand">Bowie Research Group LLC · Amarillo, Texas</div>
   <div class="footer-tagline">Research-driven consulting for businesses with unique problems.</div>
   <div class="footer-links">
-    <a href="#">LinkedIn</a>
+    <a href="https://www.linkedin.com/company/bowie-research-group/" target="_blank" rel="noopener">LinkedIn</a>
     <a href="mailto:m.loftin@bowieRG.com">Email</a>
   </div>
 </footer>`;
