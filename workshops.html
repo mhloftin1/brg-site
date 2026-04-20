@@ -115,6 +115,7 @@
   </div>
 </footer>
 
+<script src="/forms.js"></script>
 <script>
   // Nav scroll effect
   window.addEventListener('scroll', () => {
@@ -144,18 +145,6 @@
       }
     });
   });
-
-  // ========== WORKSHOP WAITLIST ==========
-  function submitWaitlist() {
-    const input = document.getElementById('waitlistEmail');
-    if (!input.value || !input.value.includes('@')) {
-      input.style.borderColor = '#c0392b';
-      input.addEventListener('input', () => { input.style.borderColor = ''; }, { once: true });
-      return;
-    }
-    document.getElementById('waitlistContent').style.display = 'none';
-    document.getElementById('waitlistSuccess').style.display = 'block';
-  }
 </script>
 
 </body>

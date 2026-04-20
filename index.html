@@ -171,6 +171,7 @@
   </div>
 </footer>
 
+<script src="/forms.js"></script>
 <script>
   // Nav scroll effect
   window.addEventListener('scroll', () => {
@@ -200,22 +201,6 @@
       }
     });
   });
-
-  // ========== HERO EMAIL BAR ==========
-  function submitHeroEmail() {
-    const input = document.getElementById('heroEmailInput');
-    if (!input.value || !input.value.includes('@')) {
-      input.style.borderColor = '#c0392b';
-      input.addEventListener('input', () => { input.style.borderColor = ''; }, { once: true });
-      return;
-    }
-    document.getElementById('heroEmailContent').style.display = 'none';
-    document.getElementById('heroEmailSuccess').style.display = 'block';
-  }
-
-  function dismissHeroEmail() {
-    document.getElementById('heroEmail').classList.add('dismissed');
-  }
 </script>
 
 </body>

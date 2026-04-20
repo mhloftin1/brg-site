@@ -41,7 +41,8 @@
       <h3>Tell us what you're working on</h3>
       <p>Outline the situation and we'll be in touch within one business day.</p>
 
-      <form onsubmit="event.preventDefault(); document.getElementById('formSuccess').style.display='block'; this.style.display='none';">
+      <form id="contactForm" onsubmit="event.preventDefault(); submitContactForm(this);">
+        <input type="hidden" name="botcheck" style="display:none;">
         <div class="form-group">
           <label>Name</label>
           <input type="text" name="name" placeholder="Your name" required>
@@ -88,6 +89,7 @@
   </div>
 </footer>
 
+<script src="/forms.js"></script>
 <script>
   // Nav scroll effect
   window.addEventListener('scroll', () => {
@@ -105,19 +107,6 @@
   }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  // Smooth scroll for same-page anchor links only
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      e.preventDefault();
-      const target = document.querySelector(a.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        document.querySelector('.nav-links').classList.remove('open');
-      }
-    });
-  });
-
 </script>
 
 </body>
