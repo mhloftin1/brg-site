@@ -113,14 +113,50 @@ function postPageHTML(post) {
     line-height: 1.8;
     margin-bottom: 1.25rem;
   }
+  .post-single .post-body hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2.5rem 0;
+  }
   .post-single .post-body h2 {
     font-family: var(--font-display);
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     color: var(--navy-deep);
     margin-top: 2.5rem;
     margin-bottom: 1rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--border);
+  }
+  /* Callout block for bullet lists */
+  .post-single .post-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 1.75rem 0 1.75rem 0;
+    background: var(--cream);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+    padding: 1.5rem 1.75rem;
+  }
+  .post-single .post-body ul li {
+    font-size: 0.95rem;
+    color: var(--navy-deep);
+    line-height: 1.65;
+    padding: 0.35rem 0;
+    border-bottom: 1px solid var(--border);
+    padding-left: 1rem;
+    position: relative;
+  }
+  .post-single .post-body ul li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .post-single .post-body ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.75rem;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--accent);
   }
   .post-back {
     display: inline-flex;

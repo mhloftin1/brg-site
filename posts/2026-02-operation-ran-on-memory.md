@@ -33,7 +33,6 @@ One person carried the institutional knowledge for how the numbers should actual
 
 This was an operations problem wearing a software mask. The previous contractor missed it.
 
-## How the previous contractor missed it
 
 The consultants who installed the CPQ sold the software as the answer. They oversold what the configuration could do and never understood the manufacturing process underneath it.
 
@@ -41,7 +40,6 @@ This is the standard pattern. A business hits a growth constraint. Someone sells
 
 The software wasn't the issue. Nobody had done the work to figure that out before recommending it.
 
-## Research before diagnosis
 
 This is where BRG works differently.
 
@@ -63,13 +61,11 @@ That research changed the engagement. It also gave the client something they did
 
 Each of those has standalone value. The assessment is what unlocked them and what will unlock the next round. Without the research to see the full scope, any one fix would have been a patch on a system that still didn't work. The client now has a clear picture of what's been addressed, what's still open, and the real options going forward, including whether their current software is the right tool or whether a custom build makes more sense.
 
-## The structural part
 
 Hughes didn't have a people problem. The institutional knowledge lived in one person's head because the playbook hadn't been built to scale. The team wasn't playing from the same page because the page didn't exist.
 
 This is invisible until someone does the research to surface it. Owner-led businesses in this position don't need another software salesperson, and they don't need a consultant arriving with a pre-built framework. They need someone who will do the work to understand what's actually happening before telling them what to do about it.
 
-## For accountants and CPAs
 
 If you're looking at a client's books and seeing inventory differences you can't explain, or helping someone prepare for a transaction and realizing the operations won't survive due diligence, the problem may not be what it looks like on the surface.
 
