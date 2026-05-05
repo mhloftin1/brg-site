@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Operation Ran on Memory — Bowie Research Group</title>
+<title>The File Was Fine. The Foundation Wasn't. | Bowie Research Group</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/brg-site/styles.css">
-<link rel="icon" type="image/svg+xml" href="/brg-site/favicon.svg">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/styles.css">
 <style>
   .post-single {
     max-width: 780px;
@@ -72,46 +72,79 @@
 
 <nav id="nav">
   <div class="nav-inner">
-    <a href="/brg-site/index.html" class="nav-logo">Bowie Research Group</a>
+    <a href="/index.html" class="nav-logo">Bowie Research Group</a>
     <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links">
-      <li><a href="/brg-site/index.html">Home</a></li>
-      <li><a href="/brg-site/work.html">Work</a></li>
-      <li><a href="/brg-site/workshops.html">Workshops</a></li>
-      <li><a href="/brg-site/contact.html" class="nav-cta">Talk to Us</a></li>
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/work.html">Work</a></li>
+      <li><a href="/workshops.html">Workshops</a></li>
+      <li><a href="/contact.html" class="nav-cta">Talk to Us</a></li>
     </ul>
   </div>
 </nav>
 
 <div class="page-header">
   <div class="container">
-    <h1 style="font-size:clamp(1.2rem,2vw,1.6rem);opacity:0.7;"><a href="/brg-site/work.html" style="color:inherit;text-decoration:none;">← Work</a></h1>
+    <h1 style="font-size:clamp(1.2rem,2vw,1.6rem);opacity:0.7;"><a href="/work.html" style="color:inherit;text-decoration:none;">← Work</a></h1>
   </div>
 </div>
 
 <article class="post-single">
   <span class="post-tag">Manufacturing · Systems · Exit Readiness</span>
-  <h1>The Operation Ran on Memory</h1>
-  <span class="post-date">February 2, 2026</span>
+  <h1>The File Was Fine. The Foundation Wasn't.</h1>
+  <span class="post-date">April 21, 2026</span>
   <div class="post-body">
-    <p>A trailer manufacturer with 40+ units per month, two production facilities, and a quoting process that required 60+ minutes of manual correction per build.</p>
-<p>The item master had multiple numbering systems. The die number reference was 90% wrong. Build instructions lived in verbal orders and handwritten sheets. One person held the entire data structure in her head — and she was drowning.</p>
-<p>We didn&#39;t know their ERP system before we started. We learned it because that&#39;s what the problem required. Over two months, we validated 537 item codes, rebuilt the die map from scratch, digitized flatbed order intake (replacing 250+ handwritten PDFs), and documented processes across both facilities.</p>
-<p>The result: a system designed to generate accurate BOMs without manual correction, enable barcode-driven tracking, and scale with volume without adding office headcount.</p>
-<h2>What It Demonstrates</h2>
-<p>Discovery matters more than pre-packaged expertise. The client already had the knowledge — it was trapped in one person&#39;s head and scattered across paper systems. Our job was to ask the right questions, extract the knowledge, and build something that survives turnover.</p>
+    <p>A mid-size trailer manufacturer called us about a broken JSON file.</p>
+<p>Their configure-price-quote system, the software that turns a custom order into a bill of materials, had stalled. The person keeping it running was an intern with some computer skills, propping up a CPQ system the original consultants had built and walked away from. He&#39;d been backing up the one employee with the institutional knowledge to make any of it work.</p>
+<p>Then he left. The company had a signed contract, a non-functioning system, and our number.</p>
+<p>We made it work. About a week.</p>
+<p>Then we kept looking.</p>
+<hr>
+<h2>What we found</h2>
+<p>The JSON file was a symptom. The actual problem sat three layers deeper.</p>
+<p>The CPQ&#39;s raw material formulas were hardcoded. Static numbers. They didn&#39;t scale when a customer ordered a larger or smaller trailer, so every order required manual correction. We verified this across 230 production cuts and found a 28% overcalculation baked into the formulas. Every quote inflated. Every bill of materials wrong. Every correction was a person on the floor compensating for math the system should have handled.</p>
+<p>The data foundation underneath, the translation table linking vendor part numbers to internal inventory codes, was, by the client&#39;s own assessment, roughly 90% incorrect. The team wasn&#39;t working from bad data by accident. The system had never been built to hold accurate data in the first place.</p>
+<p>One person carried the institutional knowledge for how the numbers should actually work. The playbook hadn&#39;t been built to scale, so she was answering different people at different times with nothing documented behind her. The company had a good problem: customers wanted the product. The delivery infrastructure hadn&#39;t kept up.</p>
+<p>This was an operations problem wearing a software mask. The previous contractor missed it.</p>
+<h2>How the previous contractor missed it</h2>
+<p>The consultants who installed the CPQ sold the software as the answer. They oversold what the configuration could do and never understood the manufacturing process underneath it.</p>
+<p>This is the standard pattern. A business hits a growth constraint. Someone sells them technology. The technology gets layered on top of broken processes. The technology fails. The business blames the software.</p>
+<p>The software wasn&#39;t the issue. Nobody had done the work to figure that out before recommending it.</p>
+<h2>Research before diagnosis</h2>
+<p>This is where BRG works differently.</p>
+<p>Most consultancies define scope and cost upfront. They have frameworks, deliverable templates, standardized assessments. That structure protects margins by limiting discovery. It works for the consultancy. It doesn&#39;t work for the client when the real problem is bigger than the presenting symptom.</p>
+<p>We do the opposite. We invest in research into the specific situation before we recommend anything. No frameworks pulled off a shelf. No predetermined solution. We look at the whole thing and report what we find, including when what we find is bigger than what we were called about.</p>
+<p>In this case, the manufacturer called about a broken file. We found a production system running on institutional memory, a data foundation that couldn&#39;t support the software sitting on top of it, and a team doing the work despite the systems they had to use.</p>
+<p>That research changed the engagement. It also gave the client something they didn&#39;t have when we started: an honest picture of where they stood. Not a sales pitch for more software. Not a pre-scoped project with artificial boundaries. A basis for deciding what to do next.</p>
+<h2>What we built</h2>
+<ul>
+<li>537 item codes validated from scratch</li>
+<li>111 manufacturing terms standardized across departments</li>
+<li>38 departments, 32 units of measure, and 27 vendor terms mapped into a clean, auditable data structure</li>
+<li>28% formula error corrected, the one inflating every quote and flowing through every production order</li>
+<li>Data foundation rebuilt to a state the software can actually run on</li>
+</ul>
+<p>Each of those has standalone value. The assessment is what unlocked them and what will unlock the next round. Without the research to see the full scope, any one fix would have been a patch on a system that still didn&#39;t work. The client now has a clear picture of what&#39;s been addressed, what&#39;s still open, and the real options going forward, including whether their current software is the right tool or whether a custom build makes more sense.</p>
+<h2>The structural part</h2>
+<p>Hughes didn&#39;t have a people problem. The institutional knowledge lived in one person&#39;s head because the playbook hadn&#39;t been built to scale. The team wasn&#39;t playing from the same page because the page didn&#39;t exist.</p>
+<p>This is invisible until someone does the research to surface it. Owner-led businesses in this position don&#39;t need another software salesperson, and they don&#39;t need a consultant arriving with a pre-built framework. They need someone who will do the work to understand what&#39;s actually happening before telling them what to do about it.</p>
+<h2>For accountants and CPAs</h2>
+<p>If you&#39;re looking at a client&#39;s books and seeing inventory differences you can&#39;t explain, or helping someone prepare for a transaction and realizing the operations won&#39;t survive due diligence, the problem may not be what it looks like on the surface.</p>
+<p>Your clients trust you. You see things other advisors don&#39;t. But interconnected operational problems, where data, software, processes, and people all interact, fall outside most advisory scopes. That isn&#39;t a criticism. These problems cross boundaries that no single discipline covers.</p>
+<p>That&#39;s our work. We research the situation and build the operational foundation that makes your advice implementable. When your client is in a better position, so are you.</p>
+<p>If a client of yours is blaming software for something that smells operational, send them our way. We&#39;ll do the work to figure out what&#39;s actually wrong.</p>
 
   </div>
-  <a href="/brg-site/work.html" class="post-back"><span>←</span> Back to all work</a>
+  <a href="/work.html" class="post-back"><span>←</span> Back to all work</a>
 </article>
 
 <footer>
   <div class="footer-brand">Bowie Research Group LLC · Amarillo, Texas</div>
   <div class="footer-tagline">Research-driven consulting for businesses with unique problems.</div>
   <div class="footer-links">
-    <a href="#">LinkedIn</a>
+    <a href="https://www.linkedin.com/company/bowie-research-group/" target="_blank" rel="noopener">LinkedIn</a>
     <a href="mailto:m.loftin@bowieRG.com">Email</a>
   </div>
 </footer>

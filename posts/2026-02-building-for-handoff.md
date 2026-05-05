@@ -1,7 +1,7 @@
 ---
 title: "Building for Handoff"
 slug: 2026-02-building-for-handoff
-date: 2026-02-03
+date: 2026-02-02
 tags:
   - Nonprofit
   - Program Design

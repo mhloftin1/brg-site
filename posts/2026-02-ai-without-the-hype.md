@@ -1,7 +1,7 @@
 ---
 title: "AI Without the Hype"
 slug: 2026-02-ai-without-the-hype
-date: 2026-02-03
+date: 2026-02-01
 tags:
   - AI
   - Coaching
