@@ -138,9 +138,6 @@ async function submitContactForm(formEl) {
     if (data.success) {
       formEl.style.display = 'none';
       document.getElementById('formSuccess').style.display = 'block';
-      if (formData.get('email')) {
-        subscribeEmail(formData.get('email'), 'contact_form').catch(() => {});
-      }
     } else {
       btn.textContent = 'Send It';
       btn.disabled = false;
