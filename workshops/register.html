@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register — Summer Workshop Series | Bowie Research Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+  .reg-hero {
+    background: var(--navy-deep);
+    padding-top: calc(64px + 3.5rem);
+    padding-bottom: 2.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .reg-hero-inner {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .reg-eyebrow {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .reg-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 0.6rem;
+  }
+
+  .reg-hero p {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+    max-width: 520px;
+  }
+
+  .reg-body {
+    background: var(--cream);
+    padding: 3rem 2rem 5rem;
+  }
+
+  .reg-form-wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2.5rem;
+  }
+
+  .reg-section-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+    margin-top: 2rem;
+  }
+
+  .reg-section-label:first-child { margin-top: 0; }
+
+  .reg-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 1.75rem 0;
+  }
+
+  /* Workshop checkboxes */
+  .ws-check-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .ws-check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+  }
+
+  .ws-check-item:hover {
+    border-color: var(--accent);
+    background: rgba(196,135,59,0.03);
+  }
+
+  .ws-check-item.selected {
+    border-color: var(--accent);
+    background: rgba(196,135,59,0.06);
+  }
+
+  .ws-check-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-top: 1px;
+    accent-color: var(--accent);
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+
+  .ws-check-label {
+    flex: 1;
+  }
+
+  .ws-check-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--navy-deep);
+    margin-bottom: 2px;
+  }
+
+  .ws-check-meta {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+
+  /* Availability grid */
+  .avail-grid {
+    display: grid;
+    grid-template-columns: auto 1fr 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .avail-grid-header {
+    background: var(--cream);
+    padding: 0.5rem 0.25rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--navy-deep);
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .avail-grid-header span {
+    font-size: 0.6rem;
+    font-weight: 400;
+    color: var(--text-muted);
+  }
+
+  .avail-day {
+    padding: 0.6rem 0.75rem;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--navy-deep);
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    background: var(--white);
+  }
+
+  .avail-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    background: var(--white);
+    padding: 0.5rem;
+    transition: background 0.15s;
+  }
+
+  .avail-cell:nth-child(4n) { border-right: none; }
+
+  .avail-grid > .avail-day:nth-last-child(-n+4),
+  .avail-grid > .avail-cell:nth-last-child(-n+3) {
+    border-bottom: none;
+  }
+
+  .avail-cell:hover { background: rgba(196,135,59,0.05); }
+
+  .avail-cell input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--accent);
+    cursor: pointer;
+  }
+
+  .reg-submit {
+    margin-top: 2rem;
+  }
+
+  .reg-submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: var(--accent);
+    color: var(--white);
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 14px 24px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.2s;
+  }
+
+  .reg-submit-btn:hover { background: #b5762a; }
+  .reg-submit-btn:disabled { opacity: 0.6; cursor: default; }
+
+  .reg-note {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 0.75rem;
+    line-height: 1.5;
+  }
+
+  .reg-success {
+    text-align: center;
+    padding: 3rem 1rem;
+  }
+
+  .reg-success h2 {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    color: var(--navy-deep);
+    margin-bottom: 0.75rem;
+  }
+
+  .reg-success p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.75;
+    max-width: 460px;
+    margin: 0 auto 0.5rem;
+  }
+
+  @media (max-width: 600px) {
+    .reg-form-wrap { padding: 1.5rem; }
+    .avail-day { font-size: 0.7rem; padding: 0.45rem 0.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="nav-logo">Bowie Research Group</a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/work.html">Work</a></li>
+      <li><a href="/workshops.html">Workshops</a></li>
+      <li><a href="/contact.html" class="nav-cta">Talk to Us</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="reg-hero">
+  <div class="reg-hero-inner">
+    <div class="reg-eyebrow"><a href="/workshops.html" style="color:var(--accent);text-decoration:none;">← Workshops</a> &nbsp;·&nbsp; Summer Workshop Series</div>
+    <h1>Register Your Interest</h1>
+    <p>Tell us which sessions you're interested in and when you're generally available. We'll use this to set dates and follow up directly.</p>
+  </div>
+</div>
+
+<div class="reg-body">
+  <div class="reg-form-wrap">
+
+    <form id="regForm">
+
+      <!-- Contact info -->
+      <div class="reg-section-label">Your Information</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:0.75rem;">
+        <div class="form-group" style="margin-bottom:0;">
+          <label>Name</label>
+          <input type="text" id="reg-name" placeholder="Your name" required>
+        </div>
+        <div class="form-group" style="margin-bottom:0;">
+          <label>Email</label>
+          <input type="email" id="reg-email" placeholder="you@company.com" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Company <span class="optional">(optional)</span></label>
+        <input type="text" id="reg-company" placeholder="Company name">
+      </div>
+
+      <hr class="reg-divider">
+
+      <!-- Workshop selection -->
+      <div class="reg-section-label">Which sessions interest you?</div>
+      <div class="ws-check-grid">
+        <label class="ws-check-item" id="check-w1">
+          <input type="checkbox" name="workshop" value="workshop_1" id="ws1">
+          <div class="ws-check-label">
+            <div class="ws-check-title">Workshop 1 — How to AI</div>
+            <div class="ws-check-meta">June 2025 · The Amarillo Club · Half-day · Free</div>
+          </div>
+        </label>
+        <label class="ws-check-item" id="check-w2">
+          <input type="checkbox" name="workshop" value="workshop_2" id="ws2">
+          <div class="ws-check-label">
+            <div class="ws-check-title">Workshop 2 — Your Business, Your Build</div>
+            <div class="ws-check-meta">July 2025 · Location TBD · Half-day · Free</div>
+          </div>
+        </label>
+        <label class="ws-check-item" id="check-w3">
+          <input type="checkbox" name="workshop" value="workshop_3" id="ws3">
+          <div class="ws-check-label">
+            <div class="ws-check-title">Workshop 3 — Go Deeper</div>
+            <div class="ws-check-meta">August 2025 · Location TBD · Half-day · Free</div>
+          </div>
+        </label>
+      </div>
+
+      <hr class="reg-divider">
+
+      <!-- Availability grid -->
+      <div class="reg-section-label">When are you generally available?</div>
+      <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:1rem;">Select all that apply — we'll pick dates that work for the most people.</p>
+      <div class="avail-grid">
+        <div class="avail-grid-header"></div>
+        <div class="avail-grid-header">Morning<span>9am–12pm</span></div>
+        <div class="avail-grid-header">Afternoon<span>1pm–4pm</span></div>
+        <div class="avail-grid-header">Evening<span>6pm–8pm</span></div>
+
+        <div class="avail-day">Monday</div>
+        <div class="avail-cell"><input type="checkbox" name="avail" value="Monday Morning"></div>
+        <div class="avail-cell"><input type="checkbox" name="avail" value="Monday Afternoon"></div>
+        <div class="avail-cell"><input type="checkbox" name="avail" value="Monday Evening"></div>
+
+        <div class="avail-day">Tuesday</div>
+        <div class="avail-cell"><input type="checkbox" name="avail" value="Tuesday Morning"></div>
+        <div class="avail-cell"><input type="checkbox" name="avail" value="Tuesday Afternoon"></div>
+        <div class="avail-cell"><input type="checkbox" name="avail" value="Tuesday Evening"></div>
+
+        <div class="avail-day">Wednesday</div>
+        <div class="avail-cell"><input type="checkbox" name="avail" value="Wednesday Morning"></div>
+        <div class="avail-cell"><input type="checkbox" name="avail" value="Wednesday Afternoon"></div>
+        <div class="avail-cell"><input type="checkbox" name="avail" value="Wednesday Evening"></div>
+
+        <div class="avail-day">Thursday</div>
+        <div class="avail-cell"><input type="checkbox" name="avail" value="Thursday Morning"></div>
+        <div class="avail-cell"><input type="checkbox" name="avail" value="Thursday Afternoon"></div>
+        <div class="avail-cell"><input type="checkbox" name="avail" value="Thursday Evening"></div>
+
+        <div class="avail-day">Friday</div>
+        <div class="avail-cell"><input type="checkbox" name="avail" value="Friday Morning"></div>
+        <div class="avail-cell"><input type="checkbox" name="avail" value="Friday Afternoon"></div>
+        <div class="avail-cell"><input type="checkbox" name="avail" value="Friday Evening"></div>
+
+        <div class="avail-day">Saturday</div>
+        <div class="avail-cell"><input type="checkbox" name="avail" value="Saturday Morning"></div>
+        <div class="avail-cell"><input type="checkbox" name="avail" value="Saturday Afternoon"></div>
+        <div class="avail-cell"><input type="checkbox" name="avail" value="Saturday Evening"></div>
+
+        <div class="avail-day">Sunday</div>
+        <div class="avail-cell"><input type="checkbox" name="avail" value="Sunday Morning"></div>
+        <div class="avail-cell"><input type="checkbox" name="avail" value="Sunday Afternoon"></div>
+        <div class="avail-cell"><input type="checkbox" name="avail" value="Sunday Evening"></div>
+      </div>
+
+      <div class="reg-submit">
+        <button type="button" class="reg-submit-btn" onclick="submitRegistration()">Submit Registration →</button>
+        <p class="reg-note">We'll follow up by email once dates are confirmed. No spam — just session updates.</p>
+      </div>
+
+    </form>
+
+    <div id="regSuccess" class="reg-success" style="display:none;">
+      <h2>You're on the list.</h2>
+      <p>Thanks for registering your interest. We'll be in touch once dates are confirmed for the sessions you selected.</p>
+      <p>In the meantime, if you have questions reach out at <a href="mailto:m.loftin@bowieRG.com" style="color:var(--navy);">m.loftin@bowieRG.com</a>.</p>
+      <a href="/workshops.html" style="display:inline-flex;align-items:center;gap:6px;margin-top:1.5rem;color:var(--accent);font-weight:600;font-size:0.9rem;text-decoration:none;">← Back to Workshops</a>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-brand">Bowie Research Group LLC · Amarillo, Texas</div>
+  <div class="footer-tagline">Research-driven consulting for businesses with unique problems.</div>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/company/bowie-research-group/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="mailto:m.loftin@bowieRG.com">Email</a>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Pre-check workshop from URL param
+  const params = new URLSearchParams(window.location.search);
+  const w = params.get('w');
+  if (w) {
+    const cb = document.getElementById('ws' + w);
+    if (cb) {
+      cb.checked = true;
+      cb.closest('.ws-check-item').classList.add('selected');
+    }
+  }
+
+  // Toggle selected state on workshop checkboxes
+  document.querySelectorAll('.ws-check-item input').forEach(cb => {
+    cb.addEventListener('change', () => {
+      cb.closest('.ws-check-item').classList.toggle('selected', cb.checked);
+    });
+  });
+
+  // Submit registration
+  async function submitRegistration() {
+    const name = document.getElementById('reg-name').value.trim();
+    const email = document.getElementById('reg-email').value.trim();
+    const company = document.getElementById('reg-company').value.trim();
+
+    if (!name || !email) {
+      alert('Please enter your name and email.');
+      return;
+    }
+
+    if (!email.includes('@')) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    const workshops = [...document.querySelectorAll('input[name="workshop"]:checked')].map(c => c.value);
+    if (workshops.length === 0) {
+      alert('Please select at least one workshop.');
+      return;
+    }
+
+    const availability = [...document.querySelectorAll('input[name="avail"]:checked')].map(c => c.value);
+
+    const btn = document.querySelector('.reg-submit-btn');
+    btn.textContent = 'Submitting...';
+    btn.disabled = true;
+
+    // Format workshop names nicely for email
+    const wsLabels = {
+      workshop_1: 'Workshop 1 — How to AI',
+      workshop_2: 'Workshop 2 — Your Business, Your Build',
+      workshop_3: 'Workshop 3 — Go Deeper'
+    };
+    const wsText = workshops.map(w => wsLabels[w]).join(', ');
+    const availText = availability.length > 0 ? availability.join(', ') : 'None selected';
+
+    // Send to Web3Forms (email notification to Loftin)
+    const w3payload = {
+      access_key: '31b42702-178e-46d2-94ab-57fb7feb212a',
+      subject: 'Workshop Registration — ' + name + ' (' + wsText + ')',
+      from_name: name,
+      name,
+      email,
+      company: company || 'Not provided',
+      workshops: wsText,
+      availability: availText,
+      botcheck: ''
+    };
+
+    try {
+      const w3res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(w3payload)
+      });
+      const w3data = await w3res.json();
+
+      if (!w3data.success) throw new Error('Web3Forms failed');
+
+      // Add to MailerLite via Cloudflare Worker with per-workshop tags
+      const mlPromises = workshops.map(ws =>
+        fetch('https://brg-subscribe.solitary-firefly-c160.workers.dev/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email,
+            source: ws,          // workshop_1 / workshop_2 / workshop_3
+            landing_path: window.location.pathname,
+          })
+        }).catch(() => {})       // non-blocking — don't fail the whole form if ML hiccups
+      );
+      await Promise.all(mlPromises);
+
+      document.getElementById('regForm').style.display = 'none';
+      document.getElementById('regSuccess').style.display = 'block';
+
+    } catch (err) {
+      btn.textContent = 'Submit Registration →';
+      btn.disabled = false;
+      alert('Something went wrong. Please try again or email us directly at m.loftin@bowieRG.com');
+    }
+  }
+</script>
+
+</body>
+</html>

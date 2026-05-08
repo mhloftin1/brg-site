@@ -120,7 +120,7 @@
             <p class="ws-card-desc">You'll understand what a brand document is, why it's the foundation for everything else, and how to onboard AI as a tool that actually knows your operation. Every concept applied through a single running case study, start to finish.</p>
             <div class="ws-btn-row">
               <a href="/workshops/how-to-ai.html" class="ws-btn-secondary">See what's covered →</a>
-              <a href="/contact.html" class="ws-btn-primary">Register Interest →</a>
+              <a href="/workshops/register.html?w=1" class="ws-btn-primary">Register Interest →</a>
             </div>
           </div>
         </div>
@@ -147,7 +147,7 @@
             </div>
             <p class="ws-card-desc" style="font-size:0.85rem;">Bring your actual materials — logo, website copy, anything that represents your business. We run the full brand document workflow on your business specifically. You leave with a working brand document and real outputs. Loftin guides the room, but the work is yours.</p>
             <div class="ws-btn-row">
-              <a href="/contact.html" class="ws-btn-primary">Register Interest →</a>
+              <a href="/workshops/register.html?w=2" class="ws-btn-primary">Register Interest →</a>
             </div>
           </div>
         </div>
@@ -174,7 +174,7 @@
             </div>
             <p class="ws-card-desc" style="font-size:0.85rem;">We open with advanced topics — Claude vs. ChatGPT, project files, deep research, and what AI agents actually look like in a small business. Then the rest of the session is yours to apply what you've learned, with Loftin available throughout.</p>
             <div class="ws-btn-row">
-              <a href="/contact.html" class="ws-btn-primary">Register Interest →</a>
+              <a href="/workshops/register.html?w=3" class="ws-btn-primary">Register Interest →</a>
             </div>
           </div>
         </div>
@@ -185,89 +185,6 @@
 
 </div>
 
-<!-- Availability Poll -->
-<div class="avail-section">
-  <div class="container">
-    <div class="avail-layout">
-
-      <div class="avail-left">
-        <div class="sessions-eyebrow">Help Us Schedule</div>
-        <h2 class="avail-heading">When works for you?</h2>
-        <p class="avail-sub">We're setting dates for the Summer Workshop Series. Tell us when you're generally available and we'll schedule around the most common slots.</p>
-        <p class="avail-sub" style="margin-top:0.5rem;">Takes about 30 seconds.</p>
-      </div>
-
-      <div class="avail-right">
-        <form id="availForm" onsubmit="submitAvailability(event)">
-
-          <!-- Name + Email -->
-          <div class="avail-fields">
-            <div class="form-group" style="margin-bottom:0;">
-              <label>Name</label>
-              <input type="text" id="avail-name" placeholder="Your name" required>
-            </div>
-            <div class="form-group" style="margin-bottom:0;">
-              <label>Email</label>
-              <input type="email" id="avail-email" placeholder="you@company.com" required>
-            </div>
-          </div>
-
-          <!-- Time grid -->
-          <div class="avail-grid-label">Select all times that generally work for you</div>
-          <div class="avail-grid">
-            <div class="avail-grid-header"></div>
-            <div class="avail-grid-header">Morning<span>9am–12pm</span></div>
-            <div class="avail-grid-header">Afternoon<span>1pm–4pm</span></div>
-            <div class="avail-grid-header">Evening<span>6pm–8pm</span></div>
-
-            <div class="avail-day">Monday</div>
-            <div class="avail-cell"><input type="checkbox" name="avail" value="Monday Morning" id="mon-am"><label for="mon-am"></label></div>
-            <div class="avail-cell"><input type="checkbox" name="avail" value="Monday Afternoon" id="mon-pm"><label for="mon-pm"></label></div>
-            <div class="avail-cell"><input type="checkbox" name="avail" value="Monday Evening" id="mon-eve"><label for="mon-eve"></label></div>
-
-            <div class="avail-day">Tuesday</div>
-            <div class="avail-cell"><input type="checkbox" name="avail" value="Tuesday Morning" id="tue-am"><label for="tue-am"></label></div>
-            <div class="avail-cell"><input type="checkbox" name="avail" value="Tuesday Afternoon" id="tue-pm"><label for="tue-pm"></label></div>
-            <div class="avail-cell"><input type="checkbox" name="avail" value="Tuesday Evening" id="tue-eve"><label for="tue-eve"></label></div>
-
-            <div class="avail-day">Wednesday</div>
-            <div class="avail-cell"><input type="checkbox" name="avail" value="Wednesday Morning" id="wed-am"><label for="wed-am"></label></div>
-            <div class="avail-cell"><input type="checkbox" name="avail" value="Wednesday Afternoon" id="wed-pm"><label for="wed-pm"></label></div>
-            <div class="avail-cell"><input type="checkbox" name="avail" value="Wednesday Evening" id="wed-eve"><label for="wed-eve"></label></div>
-
-            <div class="avail-day">Thursday</div>
-            <div class="avail-cell"><input type="checkbox" name="avail" value="Thursday Morning" id="thu-am"><label for="thu-am"></label></div>
-            <div class="avail-cell"><input type="checkbox" name="avail" value="Thursday Afternoon" id="thu-pm"><label for="thu-pm"></label></div>
-            <div class="avail-cell"><input type="checkbox" name="avail" value="Thursday Evening" id="thu-eve"><label for="thu-eve"></label></div>
-
-            <div class="avail-day">Friday</div>
-            <div class="avail-cell"><input type="checkbox" name="avail" value="Friday Morning" id="fri-am"><label for="fri-am"></label></div>
-            <div class="avail-cell"><input type="checkbox" name="avail" value="Friday Afternoon" id="fri-pm"><label for="fri-pm"></label></div>
-            <div class="avail-cell"><input type="checkbox" name="avail" value="Friday Evening" id="fri-eve"><label for="fri-eve"></label></div>
-
-            <div class="avail-day">Saturday</div>
-            <div class="avail-cell"><input type="checkbox" name="avail" value="Saturday Morning" id="sat-am"><label for="sat-am"></label></div>
-            <div class="avail-cell"><input type="checkbox" name="avail" value="Saturday Afternoon" id="sat-pm"><label for="sat-pm"></label></div>
-            <div class="avail-cell"><input type="checkbox" name="avail" value="Saturday Evening" id="sat-eve"><label for="sat-eve"></label></div>
-
-            <div class="avail-day">Sunday</div>
-            <div class="avail-cell"><input type="checkbox" name="avail" value="Sunday Morning" id="sun-am"><label for="sun-am"></label></div>
-            <div class="avail-cell"><input type="checkbox" name="avail" value="Sunday Afternoon" id="sun-pm"><label for="sun-pm"></label></div>
-            <div class="avail-cell"><input type="checkbox" name="avail" value="Sunday Evening" id="sun-eve"><label for="sun-eve"></label></div>
-          </div>
-
-          <button type="submit" class="ws-btn-primary" style="width:100%;justify-content:center;margin-top:1.25rem;">Submit Availability →</button>
-        </form>
-
-        <div id="availSuccess" style="display:none;padding:2rem;text-align:center;">
-          <p style="font-size:1.05rem;font-weight:600;color:var(--navy-deep);">Got it — thank you.</p>
-          <p style="font-size:0.88rem;color:var(--text-muted);margin-top:0.4rem;">We'll announce dates once we've looked at everyone's responses.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
 
 <!-- What We Cover -->
 <div class="workshop-topics">
