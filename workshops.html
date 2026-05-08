@@ -185,6 +185,90 @@
 
 </div>
 
+<!-- Availability Poll -->
+<div class="avail-section">
+  <div class="container">
+    <div class="avail-layout">
+
+      <div class="avail-left">
+        <div class="sessions-eyebrow">Help Us Schedule</div>
+        <h2 class="avail-heading">When works for you?</h2>
+        <p class="avail-sub">We're setting dates for the Summer Workshop Series. Tell us when you're generally available and we'll schedule around the most common slots.</p>
+        <p class="avail-sub" style="margin-top:0.5rem;">Takes about 30 seconds.</p>
+      </div>
+
+      <div class="avail-right">
+        <form id="availForm" onsubmit="submitAvailability(event)">
+
+          <!-- Name + Email -->
+          <div class="avail-fields">
+            <div class="form-group" style="margin-bottom:0;">
+              <label>Name</label>
+              <input type="text" id="avail-name" placeholder="Your name" required>
+            </div>
+            <div class="form-group" style="margin-bottom:0;">
+              <label>Email</label>
+              <input type="email" id="avail-email" placeholder="you@company.com" required>
+            </div>
+          </div>
+
+          <!-- Time grid -->
+          <div class="avail-grid-label">Select all times that generally work for you</div>
+          <div class="avail-grid">
+            <div class="avail-grid-header"></div>
+            <div class="avail-grid-header">Morning<span>9am–12pm</span></div>
+            <div class="avail-grid-header">Afternoon<span>1pm–4pm</span></div>
+            <div class="avail-grid-header">Evening<span>6pm–8pm</span></div>
+
+            <div class="avail-day">Monday</div>
+            <div class="avail-cell"><input type="checkbox" name="avail" value="Monday Morning" id="mon-am"><label for="mon-am"></label></div>
+            <div class="avail-cell"><input type="checkbox" name="avail" value="Monday Afternoon" id="mon-pm"><label for="mon-pm"></label></div>
+            <div class="avail-cell"><input type="checkbox" name="avail" value="Monday Evening" id="mon-eve"><label for="mon-eve"></label></div>
+
+            <div class="avail-day">Tuesday</div>
+            <div class="avail-cell"><input type="checkbox" name="avail" value="Tuesday Morning" id="tue-am"><label for="tue-am"></label></div>
+            <div class="avail-cell"><input type="checkbox" name="avail" value="Tuesday Afternoon" id="tue-pm"><label for="tue-pm"></label></div>
+            <div class="avail-cell"><input type="checkbox" name="avail" value="Tuesday Evening" id="tue-eve"><label for="tue-eve"></label></div>
+
+            <div class="avail-day">Wednesday</div>
+            <div class="avail-cell"><input type="checkbox" name="avail" value="Wednesday Morning" id="wed-am"><label for="wed-am"></label></div>
+            <div class="avail-cell"><input type="checkbox" name="avail" value="Wednesday Afternoon" id="wed-pm"><label for="wed-pm"></label></div>
+            <div class="avail-cell"><input type="checkbox" name="avail" value="Wednesday Evening" id="wed-eve"><label for="wed-eve"></label></div>
+
+            <div class="avail-day">Thursday</div>
+            <div class="avail-cell"><input type="checkbox" name="avail" value="Thursday Morning" id="thu-am"><label for="thu-am"></label></div>
+            <div class="avail-cell"><input type="checkbox" name="avail" value="Thursday Afternoon" id="thu-pm"><label for="thu-pm"></label></div>
+            <div class="avail-cell"><input type="checkbox" name="avail" value="Thursday Evening" id="thu-eve"><label for="thu-eve"></label></div>
+
+            <div class="avail-day">Friday</div>
+            <div class="avail-cell"><input type="checkbox" name="avail" value="Friday Morning" id="fri-am"><label for="fri-am"></label></div>
+            <div class="avail-cell"><input type="checkbox" name="avail" value="Friday Afternoon" id="fri-pm"><label for="fri-pm"></label></div>
+            <div class="avail-cell"><input type="checkbox" name="avail" value="Friday Evening" id="fri-eve"><label for="fri-eve"></label></div>
+
+            <div class="avail-day">Saturday</div>
+            <div class="avail-cell"><input type="checkbox" name="avail" value="Saturday Morning" id="sat-am"><label for="sat-am"></label></div>
+            <div class="avail-cell"><input type="checkbox" name="avail" value="Saturday Afternoon" id="sat-pm"><label for="sat-pm"></label></div>
+            <div class="avail-cell"><input type="checkbox" name="avail" value="Saturday Evening" id="sat-eve"><label for="sat-eve"></label></div>
+
+            <div class="avail-day">Sunday</div>
+            <div class="avail-cell"><input type="checkbox" name="avail" value="Sunday Morning" id="sun-am"><label for="sun-am"></label></div>
+            <div class="avail-cell"><input type="checkbox" name="avail" value="Sunday Afternoon" id="sun-pm"><label for="sun-pm"></label></div>
+            <div class="avail-cell"><input type="checkbox" name="avail" value="Sunday Evening" id="sun-eve"><label for="sun-eve"></label></div>
+          </div>
+
+          <button type="submit" class="ws-btn-primary" style="width:100%;justify-content:center;margin-top:1.25rem;">Submit Availability →</button>
+        </form>
+
+        <div id="availSuccess" style="display:none;padding:2rem;text-align:center;">
+          <p style="font-size:1.05rem;font-weight:600;color:var(--navy-deep);">Got it — thank you.</p>
+          <p style="font-size:0.88rem;color:var(--text-muted);margin-top:0.4rem;">We'll announce dates once we've looked at everyone's responses.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 <!-- What We Cover -->
 <div class="workshop-topics">
   <div class="container">
@@ -254,8 +338,56 @@
   function wsScroll(dir) {
     const wrap = document.getElementById('ws-carousel');
     const card = wrap.querySelector('.ws-carousel-card');
-    const cardWidth = card.offsetWidth + 16; // 16px = gap
+    const cardWidth = card.offsetWidth + 16;
     wrap.scrollBy({ left: dir * cardWidth, behavior: 'smooth' });
+  }
+
+  // Availability poll submission
+  async function submitAvailability(e) {
+    e.preventDefault();
+    const name = document.getElementById('avail-name').value;
+    const email = document.getElementById('avail-email').value;
+    const checked = [...document.querySelectorAll('input[name="avail"]:checked')].map(c => c.value);
+
+    if (checked.length === 0) {
+      alert('Please select at least one time slot.');
+      return;
+    }
+
+    const btn = document.querySelector('#availForm button[type="submit"]');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    const payload = {
+      access_key: '31b42702-178e-46d2-94ab-57fb7feb212a',
+      subject: 'Workshop Availability Response — ' + name,
+      from_name: name,
+      name: name,
+      email: email,
+      availability: checked.join(', '),
+      botcheck: ''
+    };
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+      if (data.success) {
+        document.getElementById('availForm').style.display = 'none';
+        document.getElementById('availSuccess').style.display = 'block';
+      } else {
+        btn.textContent = 'Submit Availability →';
+        btn.disabled = false;
+        alert('Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      btn.textContent = 'Submit Availability →';
+      btn.disabled = false;
+      alert('Connection error. Please try again.');
+    }
   }
 
   document.querySelectorAll('a[href^="#"]').forEach(a => {
