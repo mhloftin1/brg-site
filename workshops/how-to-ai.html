@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workshop 1: How to AI | Bowie Research Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+  /* ── DETAIL PAGE SPECIFIC STYLES ── */
+  .ws-detail-hero {
+    background: var(--navy-deep);
+    padding-top: calc(64px + 4rem);
+    padding-bottom: 0;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .ws-detail-hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding-bottom: 2.5rem;
+  }
+
+  .ws-detail-eyebrow {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .ws-detail-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 0.75rem;
+    max-width: 680px;
+  }
+
+  .ws-detail-sub {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.7;
+    max-width: 560px;
+    margin-bottom: 2rem;
+  }
+
+  /* Logistics strip */
+  .ws-logistics-strip {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 1.5rem;
+    display: flex;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .ws-logistics-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .ws-logistics-label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .ws-logistics-value {
+    font-size: 0.9rem;
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  .ws-logistics-sub {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* Amber divider bar at bottom of hero */
+  .ws-hero-bar {
+    height: 4px;
+    background: var(--accent);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* Main content area */
+  .ws-detail-body {
+    padding: 4rem 2rem;
+    background: var(--cream);
+  }
+
+  .ws-detail-layout {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .ws-detail-main { }
+
+  /* Section headings */
+  .ws-section-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .ws-section-heading {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--navy-deep);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .ws-body-text {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  /* Callout block */
+  .ws-callout {
+    background: rgba(196,135,59,0.07);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .ws-callout p {
+    font-size: 0.92rem;
+    color: var(--navy-deep);
+    line-height: 1.7;
+    font-weight: 500;
+  }
+
+  /* Section divider */
+  .ws-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2.5rem 0;
+  }
+
+  /* Leave-withs list */
+  .ws-leavewith-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .ws-leavewith-list li {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+
+  .ws-leavewith-list li:last-child { border-bottom: none; }
+
+  .ws-leavewith-num {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--accent);
+    opacity: 0.4;
+    line-height: 1;
+    min-width: 32px;
+    margin-top: 2px;
+  }
+
+  .ws-leavewith-text {
+    font-size: 0.92rem;
+    color: var(--navy-deep);
+    line-height: 1.65;
+    font-weight: 500;
+  }
+
+  /* Session arc / agenda */
+  .ws-agenda {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 1rem;
+  }
+
+  .ws-agenda-item {
+    display: flex;
+    gap: 1.25rem;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+
+  .ws-agenda-item:last-child { border-bottom: none; }
+
+  .ws-agenda-block {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(196,135,59,0.09);
+    border: 1px solid rgba(196,135,59,0.2);
+    border-radius: 4px;
+    padding: 3px 8px;
+    white-space: nowrap;
+    margin-top: 3px;
+    flex-shrink: 0;
+  }
+
+  .ws-agenda-content { }
+
+  .ws-agenda-title {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--navy-deep);
+    margin-bottom: 3px;
+  }
+
+  .ws-agenda-desc {
+    font-size: 0.83rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* Fit grid */
+  .ws-fit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .ws-fit-card {
+    padding: 1.25rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+
+  .ws-fit-card.yes { background: var(--white); }
+  .ws-fit-card.no { background: #F0EDE6; opacity: 0.8; }
+
+  .ws-fit-label {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .ws-fit-card.no .ws-fit-label { color: var(--text-muted); }
+
+  .ws-fit-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .ws-fit-list li {
+    font-size: 0.83rem;
+    color: var(--navy-deep);
+    line-height: 1.5;
+    padding-left: 0.9rem;
+    position: relative;
+  }
+
+  .ws-fit-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55rem;
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .ws-fit-card.no .ws-fit-list li::before { background: var(--text-muted); }
+
+  /* FAQ */
+  .ws-faq {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 1rem;
+  }
+
+  .ws-faq-item {
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .ws-faq-item:last-child { border-bottom: none; }
+
+  .ws-faq-q {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--navy-deep);
+    margin-bottom: 0.4rem;
+  }
+
+  .ws-faq-a {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  /* Sidebar */
+  .ws-sidebar { }
+
+  .ws-register-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    position: sticky;
+    top: 84px;
+  }
+
+  .ws-register-card-header {
+    background: var(--navy-deep);
+    padding: 1.25rem 1.5rem;
+    border-bottom: 3px solid var(--accent);
+  }
+
+  .ws-register-card-header-label {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.35rem;
+  }
+
+  .ws-register-card-header-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--white);
+    line-height: 1.2;
+  }
+
+  .ws-register-card-body {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .ws-register-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .ws-register-detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .ws-register-detail-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+  .ws-register-detail-label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .ws-register-detail-value {
+    font-size: 0.85rem;
+    color: var(--navy-deep);
+    font-weight: 500;
+  }
+
+  .ws-register-detail-sub {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+  }
+
+  .ws-register-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: var(--accent);
+    color: var(--white);
+    font-size: 0.88rem;
+    font-weight: 700;
+    padding: 12px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0.75rem;
+  }
+
+  .ws-register-btn:hover { background: #b5762a; transform: translateY(-1px); }
+
+  .ws-register-note {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  .ws-bring-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+  }
+
+  .ws-bring-list li {
+    font-size: 0.82rem;
+    color: var(--navy-deep);
+    padding: 0.3rem 0 0.3rem 1rem;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .ws-bring-list li:last-child { border-bottom: none; }
+
+  .ws-bring-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65rem;
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .ws-bring-label {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.4rem;
+  }
+
+  /* Instructor card */
+  .ws-instructor-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .ws-instructor-label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+  }
+
+  .ws-instructor-name {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--navy-deep);
+    margin-bottom: 0.35rem;
+  }
+
+  .ws-instructor-bio {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  /* Footer CTA */
+  .ws-footer-cta {
+    background: var(--navy-deep);
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  .ws-footer-cta h2 {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+
+  .ws-footer-cta p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 1.5rem;
+  }
+
+  .ws-footer-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--accent);
+    color: var(--white);
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 13px 28px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .ws-footer-cta-btn:hover { background: #b5762a; }
+
+  @media (max-width: 720px) {
+    .ws-detail-layout { grid-template-columns: 1fr; }
+    .ws-sidebar { order: -1; }
+    .ws-register-card { position: static; }
+    .ws-fit-grid { grid-template-columns: 1fr; }
+    .ws-logistics-strip { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="nav-logo">Bowie Research Group</a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/work.html">Work</a></li>
+      <li><a href="/workshops.html">Workshops</a></li>
+      <li><a href="/contact.html" class="nav-cta">Talk to Us</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="ws-detail-hero">
+  <div class="ws-detail-hero-inner">
+    <div class="ws-detail-eyebrow">← <a href="/workshops.html" style="color:var(--accent);text-decoration:none;">Workshops</a> &nbsp;·&nbsp; Workshop 1 of 3</div>
+    <h1 class="ws-detail-title">Most AI doesn't know your business. This session fixes that.</h1>
+    <p class="ws-detail-sub">A half-day session for Amarillo business owners. You'll learn what it actually takes to get consistent, useful output from AI — and leave with the foundation to do it.</p>
+    <div class="ws-logistics-strip">
+      <div class="ws-logistics-item">
+        <div class="ws-logistics-label">Date</div>
+        <div class="ws-logistics-value">June 2025</div>
+        <div class="ws-logistics-sub">Time TBD</div>
+      </div>
+      <div class="ws-logistics-item">
+        <div class="ws-logistics-label">Location</div>
+        <div class="ws-logistics-value">The Amarillo Club</div>
+        <div class="ws-logistics-sub">Amarillo, Texas</div>
+      </div>
+      <div class="ws-logistics-item">
+        <div class="ws-logistics-label">Format</div>
+        <div class="ws-logistics-value">Half-day · Small group</div>
+        <div class="ws-logistics-sub">Lunch included</div>
+      </div>
+      <div class="ws-logistics-item">
+        <div class="ws-logistics-label">Admission</div>
+        <div class="ws-logistics-value" style="color:var(--accent);">Free</div>
+        <div class="ws-logistics-sub">Limited seats</div>
+      </div>
+    </div>
+  </div>
+  <div class="ws-hero-bar"></div>
+</div>
+
+<!-- BODY -->
+<div class="ws-detail-body">
+  <div class="ws-detail-layout">
+
+    <!-- MAIN CONTENT -->
+    <div class="ws-detail-main">
+
+      <!-- The problem -->
+      <div class="ws-section-label">The Problem</div>
+      <h2 class="ws-section-heading">Generic output isn't an AI problem. It's an information problem.</h2>
+      <p class="ws-body-text">Most people using AI paste a task into a prompt and get something that sounds fine but doesn't sound like them. The follow-up email could have come from any business. The flyer reads like a template. The proposal doesn't have the company's voice in it.</p>
+      <p class="ws-body-text">The tool isn't broken. It just doesn't know your business. It doesn't know how you work, who you serve, how you talk, what you care about. Without that context, it guesses — and the guesses are generic.</p>
+
+      <div class="ws-callout">
+        <p>This is the same problem in every industry. A solo insurance agent with 200 clients. A construction company quoting custom projects. A law firm writing client-facing updates. The tool is capable. The context isn't there.</p>
+      </div>
+
+      <hr class="ws-divider">
+
+      <!-- What you'll leave with -->
+      <div class="ws-section-label">What You'll Leave With</div>
+      <h2 class="ws-section-heading">Specific, not vague.</h2>
+      <ul class="ws-leavewith-list">
+        <li>
+          <div class="ws-leavewith-num">1</div>
+          <div class="ws-leavewith-text">A clear understanding of what a brand document is and why it's the foundation for consistent AI output — not a marketing exercise, a context file.</div>
+        </li>
+        <li>
+          <div class="ws-leavewith-num">2</div>
+          <div class="ws-leavewith-text">A working mental model for how to onboard AI into your business as a tool that knows your operation, not a toy you hand a task and hope for the best.</div>
+        </li>
+        <li>
+          <div class="ws-leavewith-num">3</div>
+          <div class="ws-leavewith-text">The prompt structure and raw materials you need to build your brand document before Workshop 2 — including what to gather and how to run the discovery conversation.</div>
+        </li>
+        <li>
+          <div class="ws-leavewith-num">4</div>
+          <div class="ws-leavewith-text">Three specific Monday actions. Thirty minutes total. Everything that comes next builds on them.</div>
+        </li>
+      </ul>
+
+      <hr class="ws-divider">
+
+      <!-- Session arc -->
+      <div class="ws-section-label">The Session</div>
+      <h2 class="ws-section-heading">What actually happens in the room.</h2>
+      <p class="ws-body-text">We run a single case study from start to finish — a solo insurance agent named Sandy. Every concept gets applied to her business in real time, so you see how it works before you apply it to yours.</p>
+
+      <div class="ws-agenda">
+        <div class="ws-agenda-item">
+          <div class="ws-agenda-block">Block 1</div>
+          <div class="ws-agenda-content">
+            <div class="ws-agenda-title">Orientation — how AI actually works</div>
+            <div class="ws-agenda-desc">What these tools are, what they're not, and why most people are using them in a way that produces mediocre output. No hype. No fear. Just an accurate picture.</div>
+          </div>
+        </div>
+        <div class="ws-agenda-item">
+          <div class="ws-agenda-block">Block 2</div>
+          <div class="ws-agenda-content">
+            <div class="ws-agenda-title">Voice and identity — what makes your business sound like you</div>
+            <div class="ws-agenda-desc">The specific elements AI needs to produce output in your voice: how you talk, what you care about, who you serve, and what you won't do. Applied to Sandy's business live.</div>
+          </div>
+        </div>
+        <div class="ws-agenda-item">
+          <div class="ws-agenda-block">Block 3</div>
+          <div class="ws-agenda-content">
+            <div class="ws-agenda-title">Build the brand document — the context file that feeds everything</div>
+            <div class="ws-agenda-desc">You'll watch us run the full build: discovery conversation, voice extraction, synthesis into a usable document. This is the foundation for every prompt in every session going forward.</div>
+          </div>
+        </div>
+        <div class="ws-agenda-item">
+          <div class="ws-agenda-block">Block 4</div>
+          <div class="ws-agenda-content">
+            <div class="ws-agenda-title">Three lenses — voice, operations, experience</div>
+            <div class="ws-agenda-desc">What the brand document unlocks across three dimensions: how you communicate, how you run the business day-to-day, and what clients actually feel when they work with you. Not theory — applied to Sandy's real operational problems.</div>
+          </div>
+        </div>
+        <div class="ws-agenda-item">
+          <div class="ws-agenda-block">Block 5</div>
+          <div class="ws-agenda-content">
+            <div class="ws-agenda-title">What fully systematized looks like</div>
+            <div class="ws-agenda-desc">Don't build this today. Just see it. What happens when the brand document is the foundation for templates, prompt sequences, and onboarding. Workshop 2 is where you start building it for your business.</div>
+          </div>
+        </div>
+        <div class="ws-agenda-item">
+          <div class="ws-agenda-block">Block 6</div>
+          <div class="ws-agenda-content">
+            <div class="ws-agenda-title">Monday actions — specific, doable, 30 minutes total</div>
+            <div class="ws-agenda-desc">Three things to do before Workshop 2. You'll leave knowing exactly what they are and why each one matters.</div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="ws-divider">
+
+      <!-- Who it's for -->
+      <div class="ws-section-label">Is This a Fit?</div>
+      <h2 class="ws-section-heading">Worth knowing before you register.</h2>
+      <div class="ws-fit-grid">
+        <div class="ws-fit-card yes">
+          <div class="ws-fit-label">Good fit if</div>
+          <ul class="ws-fit-list">
+            <li>You own or run a small business and you're the one doing the work</li>
+            <li>You've tried AI tools and gotten output that felt generic or off-brand</li>
+            <li>You want a system, not a one-time trick</li>
+            <li>You're willing to do three things before Workshop 2</li>
+          </ul>
+        </div>
+        <div class="ws-fit-card no">
+          <div class="ws-fit-label">Probably not a fit if</div>
+          <ul class="ws-fit-list">
+            <li>You're looking for a lecture on AI trends</li>
+            <li>You want someone to run AI for you rather than learn to use it yourself</li>
+            <li>You're not planning to attend the full series</li>
+          </ul>
+        </div>
+      </div>
+
+      <hr class="ws-divider">
+
+      <!-- FAQ -->
+      <div class="ws-section-label">Questions</div>
+      <div class="ws-faq">
+        <div class="ws-faq-item">
+          <div class="ws-faq-q">Do I need to know anything about AI before I come?</div>
+          <div class="ws-faq-a">No. We start from scratch on how these tools work. If you've never opened ChatGPT or Claude, that's fine. If you use them daily, you'll still learn something.</div>
+        </div>
+        <div class="ws-faq-item">
+          <div class="ws-faq-q">Do I need to attend all three workshops?</div>
+          <div class="ws-faq-a">Each session builds on the last. Workshop 1 is the foundation. Workshop 2 applies it to your business. Workshop 3 goes deeper. You can attend just Workshop 1, but you'll get the most out of the series if you come to all three.</div>
+        </div>
+        <div class="ws-faq-item">
+          <div class="ws-faq-q">What should I bring?</div>
+          <div class="ws-faq-a">Your laptop, a logo file if you have one, and any existing brand materials — website copy, a bio, an old email or proposal you liked. If you don't have any of those, don't worry. We'll work with what you have.</div>
+        </div>
+        <div class="ws-faq-item">
+          <div class="ws-faq-q">Why is it free?</div>
+          <div class="ws-faq-a">This is the first time we're running it. We'd rather fill the room with the right people and get the session right than charge for something we're still calibrating. Future sessions may be priced differently.</div>
+        </div>
+      </div>
+
+    </div><!-- end main -->
+
+    <!-- SIDEBAR -->
+    <div class="ws-sidebar">
+
+      <div class="ws-register-card">
+        <div class="ws-register-card-header">
+          <div class="ws-register-card-header-label">Workshop 1 of 3</div>
+          <div class="ws-register-card-header-title">How to AI</div>
+        </div>
+        <div class="ws-register-card-body">
+          <div class="ws-register-detail">
+            <div class="ws-register-detail-item">
+              <div class="ws-register-detail-label">Date</div>
+              <div class="ws-register-detail-value">June 2025</div>
+              <div class="ws-register-detail-sub">Exact date TBD</div>
+            </div>
+            <div class="ws-register-detail-item">
+              <div class="ws-register-detail-label">Location</div>
+              <div class="ws-register-detail-value">The Amarillo Club</div>
+              <div class="ws-register-detail-sub">Amarillo, Texas</div>
+            </div>
+            <div class="ws-register-detail-item">
+              <div class="ws-register-detail-label">Format</div>
+              <div class="ws-register-detail-value">Half-day · Small group</div>
+              <div class="ws-register-detail-sub">Lunch included</div>
+            </div>
+            <div class="ws-register-detail-item">
+              <div class="ws-register-detail-label">Admission</div>
+              <div class="ws-register-detail-value" style="color:var(--accent);font-size:1rem;">Free</div>
+              <div class="ws-register-detail-sub">Limited seats available</div>
+            </div>
+          </div>
+          <a href="/contact.html" class="ws-register-btn">Register Interest →</a>
+          <div class="ws-register-note">We'll confirm details by email once the date is set.</div>
+          <div class="ws-bring-label" style="margin-top:1.25rem;">What to bring</div>
+          <ul class="ws-bring-list">
+            <li>Laptop (required)</li>
+            <li>Logo PNG if you have one</li>
+            <li>Any existing brand materials</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ws-instructor-card">
+        <div class="ws-instructor-label">Instructor</div>
+        <div class="ws-instructor-name">Matt Loftin</div>
+        <div class="ws-instructor-bio">Principal, Bowie Research Group. Former economics professor. Builds operations systems for businesses where the real processes live in people's heads instead of documented workflows.</div>
+      </div>
+
+    </div><!-- end sidebar -->
+
+  </div>
+</div>
+
+<!-- FOOTER CTA -->
+<div class="ws-footer-cta">
+  <h2>Ready to register?</h2>
+  <p>Limited seats. Fill out a quick form and we'll confirm once the date is finalized.</p>
+  <a href="/contact.html" class="ws-footer-cta-btn">Register Interest →</a>
+</div>
+
+<footer>
+  <div class="footer-brand">Bowie Research Group LLC · Amarillo, Texas</div>
+  <div class="footer-tagline">Research-driven consulting for businesses with unique problems.</div>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/company/bowie-research-group/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="mailto:m.loftin@bowieRG.com">Email</a>
+  </div>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+  });
+</script>
+
+</body>
+</html>
