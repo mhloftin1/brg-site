@@ -770,6 +770,86 @@
     box-shadow: 0 4px 20px rgba(19,47,74,0.07);
   }
 
+  .ws-banner {
+    background: var(--navy-deep);
+    border-radius: 12px 12px 0 0;
+    padding: 2rem 2rem 1.5rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ws-banner-stripe {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: var(--accent);
+  }
+
+  .ws-banner-watermark {
+    position: absolute;
+    right: 1rem;
+    bottom: -1.5rem;
+    font-family: var(--font-display);
+    font-size: 8rem;
+    color: rgba(255,255,255,0.04);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .ws-banner-content {
+    position: relative;
+  }
+
+  .ws-banner-eyebrow {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+  }
+
+  .ws-banner-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--white);
+    line-height: 1.05;
+    margin-bottom: 0.4rem;
+  }
+
+  .ws-banner-sub {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 1.25rem;
+  }
+
+  .ws-banner-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.1);
+    margin-bottom: 1rem;
+  }
+
+  .ws-banner-meta {
+    display: flex;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .ws-banner-meta-label {
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 2px;
+  }
+
+  .ws-banner-meta-value {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.7);
+  }
+
   .ws-tag {
     font-size: 0.68rem;
     font-weight: 600;
