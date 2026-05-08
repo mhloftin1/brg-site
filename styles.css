@@ -708,12 +708,13 @@
   /* ========== WORKSHOP SESSION CARDS ========== */
   .upcoming-sessions-wrap {
     background: var(--cream);
-    padding: 4rem 2rem;
+    padding: 4rem 0;
   }
 
   .sessions-header {
-    margin-bottom: 2.5rem;
-    max-width: 860px;
+    margin-bottom: 2rem;
+    padding: 0 2rem;
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -749,12 +750,156 @@
     margin-top: 1rem;
   }
 
-  .sessions-list {
+  .ws-carousel-nav {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    max-width: 860px;
+    justify-content: flex-end;
+    gap: 8px;
+    padding: 0 2rem;
+    max-width: 1200px;
+    margin: 0 auto 0.75rem;
+  }
+
+  .ws-arrow {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--white);
+    color: var(--navy-deep);
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, border-color 0.2s;
+    line-height: 1;
+  }
+
+  .ws-arrow:hover {
+    background: var(--cream);
+    border-color: var(--navy-deep);
+  }
+
+  /* Carousel outer wrapper — overflow hidden so edge cards peek */
+  .ws-carousel-outer {
+    padding: 0 2rem;
+    max-width: 1200px;
     margin: 0 auto;
+    position: relative;
+  }
+
+  /* Fade edge hint on right */
+  .ws-carousel-outer::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0.5rem;
+    width: 60px;
+    background: linear-gradient(to right, transparent, var(--cream));
+    pointer-events: none;
+  }
+
+  .ws-carousel-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 0.5rem;
+  }
+
+  .ws-carousel-wrap::-webkit-scrollbar { display: none; }
+
+  .ws-carousel {
+    display: flex;
+    gap: 1rem;
+    width: max-content;
+  }
+
+  .ws-carousel-card {
+    width: 320px;
+    flex-shrink: 0;
+  }
+
+  .ws-carousel-card--primary {
+    width: 440px;
+  }
+
+  .ws-banner--sm {
+    padding: 1.25rem 1.5rem 1rem 2rem;
+  }
+
+  .ws-banner--sm .ws-banner-watermark {
+    font-size: 5rem;
+    bottom: -0.75rem;
+  }
+
+  .ws-btn-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  /* Coming soon banner on W2/W3 */
+  .ws-coming-banner {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 4px;
+    padding: 4px 10px;
+    display: inline-block;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-top: 0.5rem;
+  }
+
+  /* Mobile overlay arrows on carousel */
+  .ws-mobile-arrows {
+    display: none;
+  }
+
+  @media (max-width: 680px) {
+    .ws-btn-row {
+      flex-direction: column;
+    }
+    .ws-btn-row .ws-btn-primary,
+    .ws-btn-row .ws-btn-secondary {
+      width: 100%;
+      justify-content: center;
+    }
+    .ws-carousel-card,
+    .ws-carousel-card--primary {
+      width: calc(100vw - 5rem);
+    }
+    .ws-carousel-nav {
+      display: none;
+    }
+    .ws-mobile-arrows {
+      display: block;
+      pointer-events: none;
+    }
+    .ws-mobile-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(19,47,74,0.55);
+      color: white;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: all;
+      cursor: pointer;
+      border: none;
+      z-index: 10;
+    }
+    .ws-mobile-arrow--left { left: 0.5rem; }
+    .ws-mobile-arrow--right { right: 0.5rem; }
   }
 
   /* Active workshop card */
@@ -943,40 +1088,10 @@
     text-transform: uppercase;
     color: var(--text-muted);
     margin-bottom: 1rem;
-    max-width: 860px;
+    padding: 0 2rem;
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
-  }
-
-  .ws-carousel-wrap {
-    max-width: 860px;
-    margin: 0 auto;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    padding-bottom: 0.5rem;
-  }
-
-  .ws-carousel-wrap::-webkit-scrollbar { display: none; }
-
-  .ws-carousel {
-    display: flex;
-    gap: 1rem;
-    width: max-content;
-  }
-
-  .ws-carousel-card {
-    width: 380px;
-    flex-shrink: 0;
-  }
-
-  .ws-banner--sm {
-    padding: 1.25rem 1.5rem 1rem 2rem;
-  }
-
-  .ws-banner--sm .ws-banner-watermark {
-    font-size: 5rem;
-    bottom: -0.75rem;
   }
 
   .ws-btn-row {
