@@ -850,6 +850,70 @@
     color: rgba(255,255,255,0.7);
   }
 
+  .ws-series-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    max-width: 860px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .ws-carousel-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 0.5rem;
+  }
+
+  .ws-carousel-wrap::-webkit-scrollbar { display: none; }
+
+  .ws-carousel {
+    display: flex;
+    gap: 1rem;
+    width: max-content;
+  }
+
+  .ws-carousel-card {
+    width: 380px;
+    flex-shrink: 0;
+  }
+
+  .ws-banner--sm {
+    padding: 1.25rem 1.5rem 1rem 2rem;
+  }
+
+  .ws-banner--sm .ws-banner-watermark {
+    font-size: 5rem;
+    bottom: -0.75rem;
+  }
+
+  .ws-btn-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 500px) {
+    .ws-btn-row {
+      flex-direction: column;
+    }
+    .ws-btn-row .ws-btn-primary,
+    .ws-btn-row .ws-btn-secondary {
+      width: 100%;
+      justify-content: center;
+    }
+    .ws-carousel-card {
+      width: calc(100vw - 4rem);
+    }
+  }
+
   .ws-tag {
     font-size: 0.68rem;
     font-weight: 600;
