@@ -63,57 +63,62 @@
       <div class="sessions-rule"></div>
     </div>
 
-    <!-- Workshop 1 — full card, stacked -->
-    <div class="ws-card reveal" style="margin-bottom:1.5rem;">
-      <div class="ws-banner">
-        <div class="ws-banner-stripe"></div>
-        <div class="ws-banner-watermark">W1</div>
-        <div class="ws-banner-content">
-          <div class="ws-banner-eyebrow">Bowie Research Group · Workshop Series</div>
-          <div class="ws-banner-title">How to AI</div>
-          <div class="ws-banner-sub">Workshop 1 of 3 — Working Session</div>
-          <div class="ws-banner-divider"></div>
-          <div class="ws-banner-meta">
-            <div class="ws-banner-meta-item">
-              <div class="ws-banner-meta-label">Format</div>
-              <div class="ws-banner-meta-value">Half-Day Working Session</div>
+    <!-- Carousel arrows -->
+    <div class="ws-carousel-nav">
+      <button class="ws-arrow" id="ws-prev" onclick="wsScroll(-1)" aria-label="Previous">&#8592;</button>
+      <button class="ws-arrow" id="ws-next" onclick="wsScroll(1)" aria-label="Next">&#8594;</button>
+    </div>
+
+    <!-- All 3 workshops in one horizontal band -->
+    <div class="ws-carousel-wrap" id="ws-carousel">
+      <div class="ws-carousel">
+
+        <!-- Workshop 1 — wider -->
+        <div class="ws-card ws-carousel-card ws-carousel-card--primary">
+          <div class="ws-banner">
+            <div class="ws-banner-stripe"></div>
+            <div class="ws-banner-watermark">W1</div>
+            <div class="ws-banner-content">
+              <div class="ws-banner-eyebrow">Bowie Research Group · Workshop Series</div>
+              <div class="ws-banner-title">How to AI</div>
+              <div class="ws-banner-sub">Workshop 1 of 3 — Working Session</div>
+              <div class="ws-banner-divider"></div>
+              <div class="ws-banner-meta">
+                <div class="ws-banner-meta-item">
+                  <div class="ws-banner-meta-label">Format</div>
+                  <div class="ws-banner-meta-value">Half-Day Working Session</div>
+                </div>
+                <div class="ws-banner-meta-item">
+                  <div class="ws-banner-meta-label">Location</div>
+                  <div class="ws-banner-meta-value">The Amarillo Club</div>
+                </div>
+                <div class="ws-banner-meta-item">
+                  <div class="ws-banner-meta-label">Bring</div>
+                  <div class="ws-banner-meta-value">Laptop + Your Questions</div>
+                </div>
+                <div class="ws-banner-meta-item">
+                  <div class="ws-banner-meta-label">Ends With</div>
+                  <div class="ws-banner-meta-value">Lunch</div>
+                </div>
+              </div>
             </div>
-            <div class="ws-banner-meta-item">
-              <div class="ws-banner-meta-label">Location</div>
-              <div class="ws-banner-meta-value">The Amarillo Club</div>
+          </div>
+          <div style="padding:24px 28px 28px;">
+            <div class="ws-card-badge"><span class="ws-badge-dot"></span>Workshop 1 of 3</div>
+            <h3 class="ws-card-headline">Most AI doesn't know your business. This session fixes that.</h3>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin:10px 0;">
+              <span class="ws-tag">June 2025</span>
+              <span class="ws-tag">The Amarillo Club</span>
+              <span class="ws-tag">Half-day · Small group</span>
+              <span class="ws-tag ws-tag--blue">Free admission</span>
             </div>
-            <div class="ws-banner-meta-item">
-              <div class="ws-banner-meta-label">Bring</div>
-              <div class="ws-banner-meta-value">Laptop + Your Questions</div>
-            </div>
-            <div class="ws-banner-meta-item">
-              <div class="ws-banner-meta-label">Ends With</div>
-              <div class="ws-banner-meta-value">Lunch</div>
+            <p class="ws-card-desc">You'll understand what a brand document is, why it's the foundation for everything else, and how to onboard AI as a tool that actually knows your operation — not just a toy you experiment with. Every concept applied through a single running case study, start to finish.</p>
+            <div class="ws-btn-row">
+              <a href="/workshops/how-to-ai.html" class="ws-btn-secondary">See what's covered →</a>
+              <a href="/contact.html" class="ws-btn-primary">Register Interest →</a>
             </div>
           </div>
         </div>
-      </div>
-      <div style="padding:28px 32px 28px;">
-        <div class="ws-card-badge"><span class="ws-badge-dot"></span>Workshop 1 of 3</div>
-        <h3 class="ws-card-headline">Most AI doesn't know your business.<br>This session fixes that.</h3>
-        <div style="display:flex;gap:6px;flex-wrap:wrap;margin:12px 0;">
-          <span class="ws-tag">June 2025</span>
-          <span class="ws-tag">The Amarillo Club</span>
-          <span class="ws-tag">Half-day · Small group</span>
-          <span class="ws-tag ws-tag--blue">Free admission</span>
-        </div>
-        <p class="ws-card-desc">You'll understand what a brand document is, why it's the foundation for everything else, and how to onboard AI as a tool that actually knows your operation — not just a toy you experiment with. Every concept applied through a single running case study, start to finish.</p>
-        <div class="ws-btn-row">
-          <a href="/workshops/how-to-ai.html" class="ws-btn-secondary">See what's covered →</a>
-          <a href="/contact.html" class="ws-btn-primary">Register Interest →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Workshops 2 & 3 — horizontal carousel -->
-    <div class="ws-series-label">Also in this series</div>
-    <div class="ws-carousel-wrap">
-      <div class="ws-carousel">
 
         <!-- Workshop 2 -->
         <div class="ws-card ws-carousel-card">
@@ -122,20 +127,20 @@
             <div class="ws-banner-watermark">W2</div>
             <div class="ws-banner-content">
               <div class="ws-banner-eyebrow">Workshop 2 of 3</div>
-              <div class="ws-banner-title" style="font-size:clamp(1.4rem,3vw,2rem);">Your Business, Your Build</div>
+              <div class="ws-banner-title" style="font-size:clamp(1.5rem,2.5vw,2rem);">Your Business, Your Build</div>
               <div class="ws-banner-sub">Guided working session</div>
             </div>
           </div>
           <div style="padding:20px 24px 24px;">
             <div class="ws-card-badge"><span class="ws-badge-dot"></span>Workshop 2 of 3</div>
-            <div class="ws-card-headline" style="font-size:1.05rem;margin-bottom:0.5rem;">Workshop 1 on your terms. Your materials, your business, Loftin in the room.</div>
+            <h3 class="ws-card-headline" style="font-size:1rem;">Your materials, your business, Loftin in the room.</h3>
             <div style="display:flex;gap:6px;flex-wrap:wrap;margin:10px 0;">
               <span class="ws-tag">July 2025</span>
               <span class="ws-tag">Location TBD</span>
               <span class="ws-tag ws-tag--blue">Free admission</span>
             </div>
-            <p class="ws-card-desc" style="font-size:0.84rem;">You bring your actual materials — logo, website copy, anything that represents your business. We run the full brand document workflow on your business specifically, not a case study. You leave with a working brand document and real outputs. Loftin guides the room, but the work is yours.</p>
-            <div class="ws-btn-row" style="margin-top:1.25rem;">
+            <p class="ws-card-desc" style="font-size:0.85rem;">Bring your actual materials — logo, website copy, anything that represents your business. We run the full brand document workflow on your business specifically, not a case study. You leave with a working brand document and real outputs. Loftin guides the room, but the work is yours.</p>
+            <div class="ws-btn-row">
               <a href="/contact.html" class="ws-btn-primary">Register Interest →</a>
             </div>
           </div>
@@ -148,20 +153,20 @@
             <div class="ws-banner-watermark">W3</div>
             <div class="ws-banner-content">
               <div class="ws-banner-eyebrow">Workshop 3 of 3</div>
-              <div class="ws-banner-title" style="font-size:clamp(1.4rem,3vw,2rem);">Go Deeper</div>
+              <div class="ws-banner-title" style="font-size:clamp(1.5rem,2.5vw,2rem);">Go Deeper</div>
               <div class="ws-banner-sub">Advanced topics + open working time</div>
             </div>
           </div>
           <div style="padding:20px 24px 24px;">
             <div class="ws-card-badge"><span class="ws-badge-dot"></span>Workshop 3 of 3</div>
-            <div class="ws-card-headline" style="font-size:1.05rem;margin-bottom:0.5rem;">Advanced tools in the first half. Your business in the second.</div>
+            <h3 class="ws-card-headline" style="font-size:1rem;">Advanced tools in the first half. Your business in the second.</h3>
             <div style="display:flex;gap:6px;flex-wrap:wrap;margin:10px 0;">
               <span class="ws-tag">August 2025</span>
               <span class="ws-tag">Location TBD</span>
               <span class="ws-tag ws-tag--blue">Free admission</span>
             </div>
-            <p class="ws-card-desc" style="font-size:0.84rem;">We open with advanced topics — Claude vs. ChatGPT, project files, deep research for competitive intelligence, and what AI agents actually look like in a small business. Then we step back and give you the rest of the session to apply what you've learned to your own work, with Loftin available throughout.</p>
-            <div class="ws-btn-row" style="margin-top:1.25rem;">
+            <p class="ws-card-desc" style="font-size:0.85rem;">We open with advanced topics — Claude vs. ChatGPT, project files, deep research, and what AI agents actually look like in a small business. Then the rest of the session is yours to apply what you've learned to your own work, with Loftin available throughout.</p>
+            <div class="ws-btn-row">
               <a href="/contact.html" class="ws-btn-primary">Register Interest →</a>
             </div>
           </div>
@@ -238,7 +243,12 @@
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // Smooth scroll for same-page anchor links only
+  // Carousel scroll
+  function wsScroll(dir) {
+    const carousel = document.getElementById('ws-carousel');
+    carousel.scrollBy({ left: dir * 340, behavior: 'smooth' });
+  }
+
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       e.preventDefault();

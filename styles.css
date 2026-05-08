@@ -850,6 +850,92 @@
     color: rgba(255,255,255,0.7);
   }
 
+  .ws-carousel-nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    max-width: 860px;
+    margin: 0 auto 0.75rem;
+  }
+
+  .ws-arrow {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--white);
+    color: var(--navy-deep);
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, border-color 0.2s;
+    line-height: 1;
+  }
+
+  .ws-arrow:hover {
+    background: var(--cream);
+    border-color: var(--navy-deep);
+  }
+
+  .ws-carousel-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 0.5rem;
+  }
+
+  .ws-carousel-wrap::-webkit-scrollbar { display: none; }
+
+  .ws-carousel {
+    display: flex;
+    gap: 1rem;
+    width: max-content;
+  }
+
+  .ws-carousel-card {
+    width: 300px;
+    flex-shrink: 0;
+  }
+
+  .ws-carousel-card--primary {
+    width: 420px;
+  }
+
+  .ws-banner--sm {
+    padding: 1.25rem 1.5rem 1rem 2rem;
+  }
+
+  .ws-banner--sm .ws-banner-watermark {
+    font-size: 5rem;
+    bottom: -0.75rem;
+  }
+
+  .ws-btn-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 500px) {
+    .ws-btn-row {
+      flex-direction: column;
+    }
+    .ws-btn-row .ws-btn-primary,
+    .ws-btn-row .ws-btn-secondary {
+      width: 100%;
+      justify-content: center;
+    }
+    .ws-carousel-card,
+    .ws-carousel-card--primary {
+      width: calc(100vw - 4rem);
+    }
+  }
+
   .ws-series-label {
     font-size: 0.68rem;
     font-weight: 700;
