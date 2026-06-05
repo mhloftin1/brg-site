@@ -810,7 +810,7 @@
 
   /* Carousel outer wrapper — overflow hidden so edge cards peek */
   .ws-carousel-outer {
-    padding: 0 2rem 0 0;
+    padding: 0 2rem 0 2rem;
     max-width: 1200px;
     margin: 0 auto;
     position: relative;
@@ -844,12 +844,12 @@
   }
 
   .ws-carousel-card {
-    width: 320px;
+    width: 360px;
     flex-shrink: 0;
   }
 
   .ws-carousel-card--primary {
-    width: 440px;
+    width: 480px;
   }
 
   .ws-banner--sm {
@@ -1027,8 +1027,9 @@
     display: flex;
     justify-content: flex-end;
     gap: 8px;
-    max-width: 860px;
+    max-width: 1200px;
     margin: 0 auto 0.75rem;
+    padding: 0 2rem 0 0;
   }
 
   .ws-arrow {
@@ -1053,8 +1054,7 @@
   }
 
   .ws-carousel-wrap {
-    max-width: 860px;
-    margin: 0 auto;
+    margin: 0;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
@@ -1070,12 +1070,12 @@
   }
 
   .ws-carousel-card {
-    width: 300px;
+    width: 360px;
     flex-shrink: 0;
   }
 
   .ws-carousel-card--primary {
-    width: 420px;
+    width: 480px;
   }
 
   .ws-banner--sm {
