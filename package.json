@@ -4,7 +4,8 @@
   "private": true,
   "description": "Bowie Research Group website",
   "scripts": {
-    "build": "node build.js"
+    "build": "node build.js",
+    "audit": "node audit.js"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",

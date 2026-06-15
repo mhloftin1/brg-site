@@ -132,6 +132,20 @@ npm run build      # generates /work/ pages and updates work.html
 
 The GitHub Actions workflow runs `npm run build` on every push to `main`, then deploys the entire repo as a static site.
 
+## Site Audit
+
+`audit.js` is a standalone crawler that produces a Markdown audit report covering broken links, missing assets, SEO health, content quality, and performance signals. Use it before launching, before client handoff, or periodically on live sites.
+
+```bash
+npm run audit -- https://bowierg.com/
+# or with options:
+node audit.js https://bowierg.com/ --max-depth=3 --max-pages=100 --image-size-limit-kb=500 --out=audit-report.md
+```
+
+Defaults match the spec in `.claude/agents/site-audit.md`. Requires Node 18+ (uses global `fetch`).
+
+For AI-layered review (subjective content checks, tone, CTA quality), invoke the `site-audit` Claude Code subagent — it runs `audit.js`, reads the report, then layers in judgement calls a regex can't make.
+
 ## What's Not Built Yet
 
 - **Contact form backend** — currently shows an alert on submit. Needs Formspree, ConvertKit, or Google Forms integration.
